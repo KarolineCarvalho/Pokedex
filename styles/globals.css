@@ -5,6 +5,15 @@
   font-style: normal;
 }
 
+:root {
+  --water: #77c4fe;
+  --fire: #fa6555;
+  --grass: #4fc1a6;
+  --poison: #7c538c;
+  --eletric: #ffce4b;
+  --ground: #b1736c;
+}
+
 html,
 body {
   padding: 0;
