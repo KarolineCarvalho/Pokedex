@@ -1,4 +1,4 @@
-import React from "react";
+import styles from "./Image.module.scss";
 
 type Props = {
   src: string;
@@ -9,7 +9,7 @@ const Image = ({ src, alt }: Props) => {
   return (
     <picture>
       <source type="image/webp" src={src} />
-      <img src={src} alt={alt} />
+      <img src={src} alt={alt} className={styles.image} />
     </picture>
   );
 };
