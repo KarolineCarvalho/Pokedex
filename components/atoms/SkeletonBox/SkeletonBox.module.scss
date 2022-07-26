@@ -1,0 +1,28 @@
+@-webkit-keyframes bg-pan {
+  0% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 50% 0%;
+  }
+}
+@keyframes bg-pan {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.skeletonBox {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(-45deg, grey, grey, white);
+  background-size: 400% 400%;
+  -webkit-animation: bg-pan 2s ease infinite;
+  animation: bg-pan 2s ease infinite;
+}
