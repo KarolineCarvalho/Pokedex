@@ -1,0 +1,31 @@
+.text {
+  /* Color */
+  &--white {
+    color: #fff;
+  }
+  &--grey {
+    color: #888;
+  }
+  &--black {
+    color: rgba(48, 57, 67, 1);
+  }
+
+  /* Size */
+  &--small {
+    font-size: 8px;
+  }
+  &--medium {
+    font-size: 14px;
+  }
+  &--large {
+    font-size: 16px;
+  }
+
+  /* Weight */
+  &--regular {
+    font-weight: normal;
+  }
+  &--bold {
+    font-weight: bold;
+  }
+}
