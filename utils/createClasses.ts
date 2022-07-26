@@ -12,7 +12,6 @@ const createClasses = (
 
   const addClass = (name: string) => {
     classes.push(styles[base + "--" + name]);
-    return createClasses(base, styles, [...modifiers, name]);
   };
 
   const getClasses = () => classes.join(" ");

@@ -1,7 +1,12 @@
+import BackArrow from "@atoms/BackArrow";
 import type { NextPage } from "next";
 
 const Pokedex: NextPage = () => {
-  return <p>pokedex</p>;
+  return (
+    <div>
+      <BackArrow />
+    </div>
+  );
 };
 
 export default Pokedex;
