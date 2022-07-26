@@ -1,9 +1,16 @@
+@font-face {
+  font-family: "CircularStd";
+  src: url("../assets/CircularStd/circular-std-medium-500.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: CircularStd, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
@@ -13,6 +20,7 @@ a {
 
 * {
   box-sizing: border-box;
+  padding: 0;
 }
 
 @media (prefers-color-scheme: dark) {
