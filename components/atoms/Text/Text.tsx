@@ -9,6 +9,7 @@ type Props = {
 
 const Text = ({ children, color, size, weight }: Props): JSX.Element => {
   const classList = [
+    styles["text"],
     styles[`text--${color}`],
     styles[`text--${size}`],
     styles[`text--${weight}`],
