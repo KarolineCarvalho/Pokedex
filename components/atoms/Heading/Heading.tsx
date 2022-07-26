@@ -2,7 +2,7 @@ import React from "react";
 
 type Props = {
   level?: number;
-  children: React.ReactNode[];
+  children: React.ReactNode[] | React.ReactNode;
 };
 
 const Heading = ({ children, level = 1 }: Props): JSX.Element => {
