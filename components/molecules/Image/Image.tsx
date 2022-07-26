@@ -5,7 +5,7 @@ type Props = {
   alt: string;
 };
 
-const Image = ({ src, alt }: Props) => {
+const Image = ({ src, alt }: Props): JSX.Element => {
   return (
     <picture>
       <source type="image/webp" src={src} />
