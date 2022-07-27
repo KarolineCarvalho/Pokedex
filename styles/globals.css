@@ -6,12 +6,24 @@
 }
 
 :root {
+  --normal: #a9a979;
   --water: #77c4fe;
   --fire: #fa6555;
   --grass: #4fc1a6;
   --poison: #7c538c;
   --eletric: #ffce4b;
   --ground: #b1736c;
+  --ice: #629494;
+  --fighting: #c12c23;
+  --flying: #a991f0;
+  --physic: #f85789;
+  --bug: #a9b91a;
+  --rock: #b9a135;
+  --ghost: #705799;
+  --dragon: #7035f8;
+  --dark: #705746;
+  --steel: #b9b9d1;
+  --fairy: #ff9ce2;
 }
 
 html,
