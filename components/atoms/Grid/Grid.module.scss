@@ -1,7 +1,7 @@
 .grid {
   width: 100%;
   display: grid;
-  gap: 10px;
+  gap: 15px;
 
   &--home {
     grid: auto-flow 63px / repeat(2, 155px);
