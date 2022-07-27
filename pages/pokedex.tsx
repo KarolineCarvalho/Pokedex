@@ -1,5 +1,7 @@
 import BackArrow from "@atoms/BackArrow";
+import Grid from "@atoms/Grid";
 import Text from "@atoms/Text";
+import SkeletonBox from "@atoms/SkeletonBox";
 import type { NextPage } from "next";
 
 const Pokedex: NextPage = () => {
@@ -9,6 +11,15 @@ const Pokedex: NextPage = () => {
       <Text color="grey" size="large" weight="normal">
         Teste
       </Text>
+
+      <Grid type="pokedex">
+        <SkeletonBox />
+        <SkeletonBox />
+        <SkeletonBox />
+        <SkeletonBox />
+        <SkeletonBox />
+        <SkeletonBox />
+      </Grid>
     </div>
   );
 };

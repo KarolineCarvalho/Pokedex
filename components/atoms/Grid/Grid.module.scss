@@ -1,0 +1,12 @@
+.grid {
+  width: 100%;
+  display: grid;
+  gap: 10px;
+
+  &--home {
+    grid: auto-flow 63px / repeat(2, 155px);
+  }
+  &--pokedex {
+    grid: auto-flow 110px / repeat(2, 155px);
+  }
+}
