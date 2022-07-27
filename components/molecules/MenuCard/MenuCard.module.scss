@@ -1,3 +1,5 @@
+$box-shadow: 0px 1.6px 10px;
+
 .menuCard {
   overflow: hidden;
   position: relative;
@@ -6,22 +8,28 @@
   border-radius: 15px;
 
   &--green {
+    box-shadow: $box-shadow var(--grass);
     background-color: var(--grass);
   }
   &--red {
     background-color: var(--fire);
+    box-shadow: $box-shadow var(--fire);
   }
   &--blue {
     background-color: var(--water);
+    box-shadow: $box-shadow var(--water);
   }
   &--yellow {
     background-color: var(--eletric);
+    box-shadow: $box-shadow var(--eletric);
   }
   &--purple {
     background-color: var(--poison);
+    box-shadow: $box-shadow var(--poison);
   }
   &--brown {
     background-color: var(--ground);
+    box-shadow: $box-shadow var(--ground);
   }
 
   &__txt {
