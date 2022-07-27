@@ -16,9 +16,12 @@ const createClasses = (
 
   const getClasses = () => classes.join(" ");
 
+  const getElement = (name: string) => styles[`${base}__${name}`];
+
   return {
     addClass,
     getClasses,
+    getElement,
   };
 };
 
