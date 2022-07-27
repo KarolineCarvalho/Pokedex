@@ -1,3 +1,5 @@
+import Button from "@atoms/Button";
+import Input from "@atoms/Input";
 import SearchIcon from "@atoms/SearchIcon";
 import styles from "./SearchBar.module.scss";
 
@@ -9,18 +11,15 @@ const SearchBar = (props: Props): JSX.Element => {
   };
   return (
     <form className={styles["searchBar"]} onSubmit={handleSubmit}>
-      <button
-        type="submit"
-        title="Search"
-        className={styles["searchBar__button"]}
-      >
-        <SearchIcon />
-      </button>
-      <input
+      <div className={styles["searchBar__button"]}>
+        <Button type="submit" title="Search">
+          <SearchIcon />
+        </Button>
+      </div>
+      <Input
         type="search"
         name="search"
         placeholder="Search Pokemon, Move, Ability etc"
-        className={styles["searchBar__input"]}
       />
     </form>
   );
