@@ -1,0 +1,41 @@
+.menuCard {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+
+  &--green {
+    background-color: var(--grass);
+  }
+  &--red {
+    background-color: var(--fire);
+  }
+  &--blue {
+    background-color: var(--water);
+  }
+  &--yellow {
+    background-color: var(--eletric);
+  }
+  &--purple {
+    background-color: var(--poison);
+  }
+  &--brown {
+    background-color: var(--ground);
+  }
+
+  &__txt {
+    margin: 24px 20px;
+  }
+
+  &__pokeball {
+    width: 80px;
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    &--top {
+      top: -46px;
+      left: -50px;
+    }
+  }
+}

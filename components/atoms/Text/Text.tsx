@@ -1,4 +1,5 @@
 import styles from "./Text.module.scss";
+import createClasses from "@utils/createClasses";
 
 type Props = {
   children: React.ReactNode[] | React.ReactNode;
@@ -8,16 +9,13 @@ type Props = {
 };
 
 const Text = ({ children, color, size, weight }: Props): JSX.Element => {
-  const classList = [
-    styles["text"],
-    styles[`text--${color}`],
-    styles[`text--${size}`],
-    styles[`text--${weight}`],
-  ];
+  const classes = createClasses("text", styles, [
+    `${color}`,
+    `${size}$`,
+    `${weight}`,
+  ]);
 
-  const classes = classList.join(" ");
-
-  return <p className={classes}>{children}</p>;
+  return <p className={classes.getClasses()}>{children}</p>;
 };
 
 export default Text;
