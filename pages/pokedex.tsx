@@ -4,8 +4,12 @@ import Text from "@atoms/Text";
 import type { NextPage } from "next";
 import MenuCard from "@molecules/MenuCard";
 import MainLayout from "@templates/MainLayout";
+import useFetch from "hooks/useFetch";
 
 const Pokedex: NextPage = () => {
+  const { pokemon, isLoading, isError } = useFetch("pokemon/pikachu");
+  console.log(pokemon);
+
   return (
     <div>
       <MainLayout>
