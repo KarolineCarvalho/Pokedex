@@ -7,6 +7,7 @@ import PokemonType from "types/PokemonTypes";
 import Heading from "@atoms/Heading";
 import ListIcon from "@atoms/ListIcon";
 import styles from "../styles/Pokedex.module.scss";
+import Head from "next/head";
 
 const Pokedex: NextPage = () => {
   const pokemons = [
@@ -32,6 +33,9 @@ const Pokedex: NextPage = () => {
 
   return (
     <div>
+      <Head>
+        <title>Pokedex - List</title>
+      </Head>
       <MainLayout>
         <header className={styles.header}>
           <BackArrow />
