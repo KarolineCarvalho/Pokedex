@@ -1,15 +1,21 @@
 .grid {
-  width: 70%;
+  width: 100%;
+  max-width: 650px;
   height: fit-content;
   margin: 0 auto;
   display: grid;
   gap: 15px;
   list-style-type: none;
+
   &--home {
     grid: auto-flow 63px / repeat(2, max(155px, 47%));
   }
   &--pokedex {
     grid: auto-flow 110px / repeat(2, max(155px, 30%));
+
+    @media screen and (min-width: 551px) {
+      grid: auto-flow 110px / repeat(3, max(155px, 30%));
+    }
   }
   &__item {
     padding: 0;
