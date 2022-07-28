@@ -12,8 +12,8 @@ const Grid = ({ children, type }: Props): JSX.Element => {
   return (
     <ul className={classes.getClasses()}>
       {Array.isArray(children) ? (
-        children.map((child) => (
-          <li key={child?.toString()} className={classes.getElement("item")}>
+        children.map((child, i) => (
+          <li key={i} className={classes.getElement("item")}>
             {child}
           </li>
         ))
