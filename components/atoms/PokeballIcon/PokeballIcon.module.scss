@@ -1,4 +1,7 @@
 .pokeballIcon {
   mix-blend-mode: soft-light;
   opacity: 0.3;
+  &--opacity--high {
+    opacity: 0.05;
+  }
 }

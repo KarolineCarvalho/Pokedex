@@ -10,7 +10,7 @@ const MainLayout = ({ children }: Props) => {
   return (
     <div className={styles.mainLayout}>
       <div className={styles["mainLayout__background"]}>
-        <PokeballIcon color="#303943" />
+        <PokeballIcon color="#303943" opacity="high" />
       </div>
       {children}
     </div>

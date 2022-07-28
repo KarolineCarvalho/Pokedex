@@ -1,13 +1,17 @@
+import createClasses from "@utils/createClasses";
 import styles from "./PokeballIcon.module.scss";
 
 type Props = {
   color?: string;
+  opacity?: "normal" | "high";
 };
 
-const PokeballIcon = ({ color }: Props): JSX.Element => {
+const PokeballIcon = ({ color, opacity }: Props): JSX.Element => {
+  const classes = createClasses("pokeballIcon", styles);
+  if (opacity) classes.addClass("opacity--" + opacity);
   return (
     <svg viewBox="0 0 183 183" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <g className={styles.pokeballIcon}>
+      <g className={classes.getClasses()}>
         <path
           fillRule="evenodd"
           clipRule="evenodd"
