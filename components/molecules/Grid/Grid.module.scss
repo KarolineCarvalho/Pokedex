@@ -5,11 +5,24 @@
   display: grid;
   gap: 15px;
   list-style-type: none;
+
   &--home {
     grid: auto-flow 63px / repeat(2, max(155px, 47%));
+
+    @media screen and (max-width: 420px) {
+      width: 100%;
+    }
   }
   &--pokedex {
     grid: auto-flow 110px / repeat(2, max(155px, 30%));
+
+    @media screen and (max-width: 550px) {
+      width: 52%;
+    }
+
+    @media screen and (min-width: 551px) {
+      grid: auto-flow 110px / repeat(3, max(155px, 30%));
+    }
   }
   &__item {
     padding: 0;
