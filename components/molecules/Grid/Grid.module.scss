@@ -1,5 +1,6 @@
 .grid {
-  width: 70%;
+  width: 100%;
+  max-width: 650px;
   height: fit-content;
   margin: 0 auto;
   display: grid;
@@ -15,10 +16,6 @@
   }
   &--pokedex {
     grid: auto-flow 110px / repeat(2, max(155px, 30%));
-
-    @media screen and (max-width: 550px) {
-      width: 52%;
-    }
 
     @media screen and (min-width: 551px) {
       grid: auto-flow 110px / repeat(3, max(155px, 30%));
