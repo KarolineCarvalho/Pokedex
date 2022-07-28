@@ -8,6 +8,7 @@ import Heading from "@atoms/Heading";
 import ListIcon from "@atoms/ListIcon";
 import styles from "../styles/Pokedex.module.scss";
 import Head from "next/head";
+import useFetch from "hooks/useFetch";
 
 const Pokedex: NextPage = () => {
   const pokemons = [
@@ -30,6 +31,9 @@ const Pokedex: NextPage = () => {
       sprite: "images/charmander.png",
     },
   ];
+
+  const { pokemon, isLoading, isError } = useFetch("pokemon/pikachu");
+  console.log(pokemon);
 
   return (
     <div>
