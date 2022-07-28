@@ -9,7 +9,19 @@ type Props = {
 const Grid = ({ children, type }: Props): JSX.Element => {
   const classes = createClasses("grid", styles);
   classes.addClass(`${type}`);
-  return <div className={classes.getClasses()}>{children}</div>;
+  return (
+    <ul className={classes.getClasses()}>
+      {Array.isArray(children) ? (
+        children.map((child) => (
+          <li key={child?.toString()} className={classes.getElement("item")}>
+            {child}
+          </li>
+        ))
+      ) : (
+        <li className={classes.getElement("item")}>children</li>
+      )}
+    </ul>
+  );
 };
 
 export default Grid;

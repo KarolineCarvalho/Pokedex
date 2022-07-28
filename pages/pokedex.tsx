@@ -1,5 +1,5 @@
 import BackArrow from "@atoms/BackArrow";
-import Grid from "@atoms/Grid";
+import Grid from "@molecules/Grid";
 import Text from "@atoms/Text";
 import type { NextPage } from "next";
 import MenuCard from "@molecules/MenuCard";

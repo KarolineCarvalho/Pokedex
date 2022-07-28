@@ -1,4 +1,4 @@
-import Grid from "@atoms/Grid";
+import Grid from "@molecules/Grid";
 import Heading from "@atoms/Heading";
 import MenuCard from "@molecules/MenuCard";
 import SearchBar from "@organisms/SearchBar";
