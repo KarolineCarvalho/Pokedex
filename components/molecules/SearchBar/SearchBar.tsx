@@ -10,7 +10,11 @@ const SearchBar = (props: Props): JSX.Element => {
     console.log("search");
   };
   return (
-    <form className={styles["searchBar"]} onSubmit={handleSubmit}>
+    <form
+      className={styles["searchBar"]}
+      onSubmit={handleSubmit}
+      action="/pokedex"
+    >
       <div className={styles["searchBar__button"]}>
         <Button type="submit" title="Search">
           <SearchIcon />
