@@ -1,7 +1,7 @@
 import Grid from "@molecules/Grid";
 import Heading from "@atoms/Heading";
 import MenuCard from "@molecules/MenuCard";
-import SearchBar from "@organisms/SearchBar";
+import SearchBar from "@molecules/SearchBar";
 import MainLayout from "@templates/MainLayout";
 import type { NextPage } from "next";
 import Head from "next/head";
