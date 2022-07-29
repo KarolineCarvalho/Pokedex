@@ -1,25 +1,11 @@
 import useSWR from "swr";
-import Pokemon from "types/Pokemon";
-import PokemonType from "types/PokemonTypes";
-
-type PokemonBasicResults = { name: string; url: string };
-type PokemonResults = {
-  name: string;
-  types: { type: { name: PokemonType } }[];
-  sprites: { front_default: string };
-  id: number;
-};
-type PokemonBasicInfo = { results: PokemonBasicResults[] };
-
-async function fetcher(url: string) {
-  const response = await fetch(url);
-  const data = await response.json();
-  return data;
-}
-
-async function multiFetcher(...urls: string[]) {
-  return Promise.all(urls.map((url) => fetcher(url)));
-}
+import {
+  PokemonBasicInfo,
+  PokemonBasicResults,
+  PokemonResults,
+} from "types/PokemonFetchTypes";
+import { fetcher, multiFetcher } from "@utils/fetchers";
+import { combinePokemonData } from "@utils/combinePokemonData";
 
 const usePokemon = () => {
   const { data: pokemonBasicInfo, error } = useSWR<PokemonBasicInfo>(
@@ -35,20 +21,7 @@ const usePokemon = () => {
     multiFetcher
   );
 
-  let pokemonFinalData: Pokemon[] | undefined;
-  if (pokemonBasicInfo?.results && pokemonData) {
-    pokemonFinalData = pokemonData.map((pokemon: PokemonResults, i: number) => {
-      const newTypes: PokemonType[] = [pokemon.types[0].type.name];
-      if (pokemon?.types[1]?.type?.name)
-        newTypes.push(pokemon?.types[1]?.type?.name);
-      return {
-        ...pokemonBasicInfo.results[i],
-        ...pokemon,
-        sprite: pokemon.sprites.front_default,
-        types: newTypes,
-      };
-    });
-  }
+  let pokemonFinalData = combinePokemonData(pokemonBasicInfo, pokemonData);
 
   return {
     pokemon: pokemonFinalData,
