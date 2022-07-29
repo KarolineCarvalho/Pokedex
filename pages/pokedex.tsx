@@ -3,35 +3,14 @@ import Grid from "@molecules/Grid";
 import type { NextPage } from "next";
 import MainLayout from "@templates/MainLayout";
 import PokeCard from "@molecules/PokeCard";
-import PokemonType from "types/PokemonTypes";
 import Heading from "@atoms/Heading";
 import ListIcon from "@atoms/ListIcon";
 import styles from "../styles/Pokedex.module.scss";
 import Head from "next/head";
 import usePokemon from "hooks/usePokemon";
+import Link from "next/link";
 
 const Pokedex: NextPage = () => {
-  const pokemons = [
-    {
-      id: "4",
-      name: "Charmander",
-      types: ["fire"] as PokemonType[],
-      sprite: "images/charmander.png",
-    },
-    {
-      id: "5",
-      name: "Charmander",
-      types: ["fire"] as PokemonType[],
-      sprite: "images/charmander.png",
-    },
-    {
-      id: "6",
-      name: "Charmander",
-      types: ["fire"] as PokemonType[],
-      sprite: "images/charmander.png",
-    },
-  ];
-
   const { pokemon, isLoading, isError } = usePokemon();
 
   return (
@@ -57,10 +36,14 @@ const Pokedex: NextPage = () => {
                 !isError &&
                 pokemon &&
                 pokemon.map((singlePokemon) => (
-                  <PokeCard
+                  <Link
+                    href={`/pokemon/${singlePokemon.id}`}
                     key={singlePokemon.id}
-                    pokemon={singlePokemon}
-                  ></PokeCard>
+                  >
+                    <a>
+                      <PokeCard pokemon={singlePokemon}></PokeCard>
+                    </a>
+                  </Link>
                 ))}
             </Grid>
           </section>
