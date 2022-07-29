@@ -9,6 +9,7 @@ import styles from "../styles/Pokedex.module.scss";
 import Head from "next/head";
 import usePokemon from "hooks/usePokemon";
 import Link from "next/link";
+import SettingsButton from "@molecules/SettingsButton";
 
 const Pokedex: NextPage = () => {
   const { pokemon, isLoading, isError } = usePokemon();
@@ -25,6 +26,7 @@ const Pokedex: NextPage = () => {
             <ListIcon />
           </div>
         </header>
+
         <main>
           <section
             aria-label="pokemon list"
@@ -48,6 +50,7 @@ const Pokedex: NextPage = () => {
             </Grid>
           </section>
         </main>
+        <SettingsButton />
       </MainLayout>
     </div>
   );
