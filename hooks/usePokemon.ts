@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import Pokemon from "types/Pokemon";
 import PokemonType from "types/PokemonTypes";
+import { fetcher, multiFetcher } from "@utils/fetchers";
 
 type PokemonBasicResults = { name: string; url: string };
 type PokemonResults = {
@@ -10,16 +11,6 @@ type PokemonResults = {
   id: number;
 };
 type PokemonBasicInfo = { results: PokemonBasicResults[] };
-
-async function fetcher(url: string) {
-  const response = await fetch(url);
-  const data = await response.json();
-  return data;
-}
-
-async function multiFetcher(...urls: string[]) {
-  return Promise.all(urls.map((url) => fetcher(url)));
-}
 
 const usePokemon = () => {
   const { data: pokemonBasicInfo, error } = useSWR<PokemonBasicInfo>(
