@@ -1,3 +1,4 @@
+import PokemonBackground from "@molecules/PokemonBackground";
 import PokemonHeader from "@molecules/PokemonHeader";
 import { NextPage } from "next";
 import Head from "next/head";
@@ -37,6 +38,7 @@ const PokemonPage: NextPage = () => {
       </Head>
       {pokeId} - {page || "about"}
       <PokemonHeader />
+      <PokemonBackground />
     </div>
   );
 };
