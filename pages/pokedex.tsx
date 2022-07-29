@@ -8,7 +8,7 @@ import Heading from "@atoms/Heading";
 import ListIcon from "@atoms/ListIcon";
 import styles from "../styles/Pokedex.module.scss";
 import Head from "next/head";
-import useFetch from "hooks/useFetch";
+import usePokemon from "hooks/usePokemon";
 
 const Pokedex: NextPage = () => {
   const pokemons = [
@@ -32,8 +32,7 @@ const Pokedex: NextPage = () => {
     },
   ];
 
-  const { pokemon, isLoading, isError } = useFetch("pokemon/pikachu");
-  console.log(pokemon);
+  const { pokemon, isLoading, isError } = usePokemon();
 
   return (
     <div>
@@ -54,9 +53,15 @@ const Pokedex: NextPage = () => {
           >
             <Heading>Pokedex</Heading>
             <Grid type="pokedex">
-              {pokemons.map((pokemon) => (
-                <PokeCard key={pokemon.id} pokemon={pokemon}></PokeCard>
-              ))}
+              {!isLoading &&
+                !isError &&
+                pokemon &&
+                pokemon.map((singlePokemon) => (
+                  <PokeCard
+                    key={singlePokemon.id}
+                    pokemon={singlePokemon}
+                  ></PokeCard>
+                ))}
             </Grid>
           </section>
         </main>
