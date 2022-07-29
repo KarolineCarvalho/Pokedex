@@ -10,6 +10,8 @@
   max-width: 1024px;
   justify-content: center;
   align-content: center;
+  overflow: hidden;
+  position: relative;
   &__background {
     position: absolute;
     height: 280px;
