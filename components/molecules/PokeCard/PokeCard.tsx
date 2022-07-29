@@ -11,9 +11,7 @@ type Props = {
 };
 
 const PokeCard = ({ pokemon }: Props) => {
-  console.log(pokemon);
   const { id, name, types, sprite } = pokemon;
-  console.log(`PokeCard: ${types}`);
   const cardClasses = createClasses("pokeCard", styles);
   if (types.length > 0) cardClasses.addClass("type--" + types[0]);
   return (
