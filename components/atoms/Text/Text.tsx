@@ -9,11 +9,7 @@ type Props = {
 };
 
 const Text = ({ children, color, size, weight }: Props): JSX.Element => {
-  const classes = createClasses("text", styles, [
-    `${color}`,
-    `${size}$`,
-    `${weight}`,
-  ]);
+  const classes = createClasses("text", styles, [color, size, weight]);
 
   return <p className={classes.getClasses()}>{children}</p>;
 };
