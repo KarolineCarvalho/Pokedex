@@ -18,7 +18,7 @@ const Grid = ({ children, type }: Props): JSX.Element => {
           </li>
         ))
       ) : (
-        <li className={classes.getElement("item")}>children</li>
+        <li className={classes.getElement("item")}>{children}</li>
       )}
     </ul>
   );
