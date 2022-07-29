@@ -6,7 +6,7 @@
   height: 100%;
   background-color: var(--normal);
   border-radius: 15px;
-  padding: 0.5rem;
+  padding: 0.3rem;
   overflow: hidden;
   isolation: isolate;
   &__id {
@@ -18,13 +18,16 @@
   }
   &__types {
     text-transform: capitalize;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
   }
   &__sprite {
     position: absolute;
-    right: -2px;
-    bottom: 6px;
-    height: 70%;
-    width: 40%;
+    right: -10px;
+    bottom: 0px;
+    height: 80%;
+    width: 50%;
     z-index: -1;
   }
   &__background {
