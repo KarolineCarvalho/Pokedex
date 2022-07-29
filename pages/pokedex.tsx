@@ -1,14 +1,13 @@
-import BackArrow from "@atoms/BackArrow";
 import Grid from "@molecules/Grid";
 import type { NextPage } from "next";
 import MainLayout from "@templates/MainLayout";
 import PokeCard from "@molecules/PokeCard";
 import Heading from "@atoms/Heading";
-import ListIcon from "@atoms/ListIcon";
 import styles from "../styles/Pokedex.module.scss";
 import Head from "next/head";
 import usePokemon from "hooks/usePokemon";
 import Link from "next/link";
+import PokedexHeader from "@organisms/PokedexHeader";
 
 const Pokedex: NextPage = () => {
   const { pokemon, isLoading, isError } = usePokemon();
@@ -19,12 +18,7 @@ const Pokedex: NextPage = () => {
         <title>Pokedex - List</title>
       </Head>
       <MainLayout>
-        <header className={styles.header}>
-          <BackArrow />
-          <div className={styles["header__listIcon"]}>
-            <ListIcon />
-          </div>
-        </header>
+        <PokedexHeader />
         <main>
           <section
             aria-label="pokemon list"

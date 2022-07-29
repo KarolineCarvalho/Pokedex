@@ -1,0 +1,9 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  &__listIcon {
+    width: 32px;
+    height: 32px;
+  }
+}
