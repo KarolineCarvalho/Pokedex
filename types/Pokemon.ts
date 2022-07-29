@@ -1,10 +1,10 @@
 import PokemonType from "./PokemonTypes";
 
-type PokemonAbility = {
+export type PokemonAbility = {
   ability: { name: string };
 };
 
-type PokemonMove = {
+export type PokemonMove = {
   move: {
     name: string;
   };
