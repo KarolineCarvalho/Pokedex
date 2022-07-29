@@ -1,6 +1,6 @@
 import styles from "./SettingsButton.module.scss";
 
-const SettingsButton = () => {
+const SettingsButton = (): JSX.Element => {
   return (
     <div className={styles.settingsButton}>
       <svg

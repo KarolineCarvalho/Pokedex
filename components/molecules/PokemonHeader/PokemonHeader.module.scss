@@ -1,0 +1,33 @@
+.pokemonHeader {
+  width: 100vw;
+  height: 100vh;
+  background-color: #48d0b0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+}
+
+.actionsContainer {
+  display: flex;
+  width: 85%;
+  justify-content: space-between;
+}
+
+.pokemonInfo {
+  display: grid;
+  width: 85%;
+  min-width: 195px;
+  margin-top: 30px;
+  row-gap: 10px;
+  align-items: center;
+  grid: repeat(2, 50%) / repeat(2, 50%);
+
+  &__pokemonType {
+    display: flex;
+  }
+
+  &--justifyToEnd {
+    justify-self: end;
+  }
+}
