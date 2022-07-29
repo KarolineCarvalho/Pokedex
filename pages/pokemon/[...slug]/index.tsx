@@ -26,7 +26,6 @@ const getPage = (queryResult: string | string[] | undefined): PageType => {
 const PokemonPage: NextPage = () => {
   const router = useRouter();
   const { slug } = router.query;
-
   const { pokeId, type } = getName(slug);
   const page = getPage(slug);
 
