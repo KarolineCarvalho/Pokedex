@@ -1,0 +1,9 @@
+.DottedIcon {
+  position: absolute;
+  top: 1.5rem;
+  right: 20%;
+  &--opacity--high {
+    mix-blend-mode: soft-light;
+    opacity: 0.6;
+  }
+}
