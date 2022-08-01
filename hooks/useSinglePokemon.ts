@@ -7,6 +7,7 @@ const useSinglePokemon = (props: string) => {
     return data;
   }
 
+  console.log(`https://pokeapi.co/api/v2/${props}`);
   const { data, error } = useSWR(
     `https://pokeapi.co/api/v2/${props}`,
     fetchPokemon

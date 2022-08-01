@@ -1,6 +1,8 @@
 .aboutTab {
-  //min-height: 100%;
-  height: auto !important;
-  height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 85%;
   background-color: white;
+  padding-top: 1.2rem;
+  line-height: 28px;
 }
