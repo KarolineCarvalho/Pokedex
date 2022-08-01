@@ -2,6 +2,7 @@ import PokemonBackground from "@molecules/PokemonBackground";
 import PokemonHeader from "@molecules/PokemonHeader";
 import PokemonDetails from "@organisms/PokemonDetails";
 import PokemonView from "@organisms/PokemonView";
+import useSinglePokemon from "hooks/useSinglePokemon";
 import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -32,12 +33,16 @@ const PokemonPage: NextPage = () => {
   const page = getPage(slug);
 
   if (!pokeId) return <div>Loading</div>;
+  const { pokemon, isLoading, isError } = useSinglePokemon(`pokemon/${pokeId}`);
+
+  console.log(pokemon);
   return (
     <div>
       <Head>
         <title>{pokeId}</title>
       </Head>
-      <PokemonView />
+
+      <PokemonView /* pokemonName={pokemon.name} */ />
       {/* <PokemonHeader /> */}
       <PokemonBackground />
       <PokemonDetails current={page} pokemonID={pokeId} />

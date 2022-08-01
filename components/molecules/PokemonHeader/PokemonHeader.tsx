@@ -3,6 +3,7 @@ import Heading from "@atoms/Heading";
 import HeartIcon from "@atoms/HeartIcon";
 import Text from "@atoms/Text";
 import TypeBox from "@molecules/TypeBox";
+import useSinglePokemon from "hooks/useSinglePokemon";
 import styles from "./PokemonHeader.module.scss";
 
 type Props = {
@@ -18,6 +19,8 @@ const PokemonHeader = ({
   pokemonType,
   pokemonSpecie,
 }: Props): JSX.Element => {
+  /* const { pokemon, isLoading } = useSinglePokemon();
+  console.log(pokemon); */
   return (
     <div className={styles.pokemonHeader}>
       <div className={styles.actionsContainer}>

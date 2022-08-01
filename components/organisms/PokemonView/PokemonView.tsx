@@ -13,7 +13,7 @@ type Props = {
 const PokemonView = ({ backgroundColor, pokemonName, pokemonImg }: Props) => {
   return (
     <div className={styles.pokemonView}>
-      <PokemonHeader />
+      <PokemonHeader pokemonName={pokemonName} />
       <PokemonBackground />
       <div className={styles.pokemonImg}>
         <Image
