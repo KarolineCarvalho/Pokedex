@@ -1,0 +1,26 @@
+.settingsMenu {
+  &__backdrop {
+    width: 100%;
+    height: 100%;
+    background: #000000;
+    opacity: 0.5;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  &__items {
+    z-index: 1;
+    position: fixed;
+    bottom: Calc(13vh + 59px);
+    right: 18%;
+    display: flex;
+    gap: 9px;
+    align-items: flex-end;
+    justify-content: center;
+    @media (min-width: 1024px) {
+      right: 28%;
+    }
+    flex-direction: column;
+  }
+}

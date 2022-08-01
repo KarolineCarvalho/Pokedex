@@ -1,0 +1,16 @@
+.settingsItem {
+  display: flex;
+  gap: 0.7rem;
+  padding: 4px 15px;
+  background-color: white;
+  border: none;
+  border-radius: 33px;
+  z-index: 1;
+  justify-content: flex-end;
+  width: max-content;
+  &__icon {
+    width: 14px;
+    height: 14px;
+    z-index: 2;
+  }
+}
