@@ -7,6 +7,7 @@ import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
+import styles from "styles/Pokemon.module.scss";
 
 const getName = (queryResult: string | string[] | undefined) => {
   let pokeId;
@@ -37,7 +38,7 @@ const PokemonPage: NextPage = () => {
 
   console.log(pokemon);
   return (
-    <div>
+    <div className={styles.pokemonPage}>
       <Head>
         <title>{pokeId}</title>
       </Head>
