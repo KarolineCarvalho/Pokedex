@@ -8,7 +8,7 @@ import styles from "./PokemonHeader.module.scss";
 type Props = {
   pokemonName: string;
   pokemonId: string;
-  pokemonType: string;
+  pokemonType: string[];
   pokemonSpecie: string;
 };
 
@@ -26,21 +26,22 @@ const PokemonHeader = ({
       </div>
 
       <div className={styles.pokemonInfo}>
-        <Heading white>Bulbasaur</Heading>
+        <Heading white>{pokemonName}</Heading>
         <div className={styles["pokemonInfo--justifyToEnd"]}>
           <Text color="white" size="large" weight="bold">
-            #001
+            {pokemonId}
           </Text>
         </div>
 
         <div className={styles.pokemonInfo__pokemonType}>
-          <TypeBox type="grass" />
-          <TypeBox type="poison" />
+          {/* {pokemonType.map((type) => {
+            <TypeBox type={type} />;
+          })} */}
         </div>
 
         <div className={styles["pokemonInfo--justifyToEnd"]}>
           <Text color="white" size="medium" weight="normal">
-            Seed Pokemon
+            {pokemonName}
           </Text>
         </div>
       </div>

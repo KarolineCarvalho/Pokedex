@@ -1,6 +1,73 @@
-.pokeballContainer {
-  width: 150px;
-  height: 150px;
+.pokemonBackground {
   position: absolute;
-  left: calc(50% - 100px);
+  width: 100vw;
+  height: 100vh;
+
+  top: 0;
+
+  background-color: var(--grass);
+
+  .pokeballContainer {
+    width: 30%;
+    max-width: 200px;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 5;
+  }
+
+  &--type {
+    &--normal {
+      background-color: var(--normal);
+    }
+    &--fire {
+      background-color: var(--fire);
+    }
+    &--water {
+      background-color: var(--water);
+    }
+    &--grass {
+      background-color: var(--grass);
+    }
+    &--poison {
+      background-color: var(--poison);
+    }
+    &--eletric {
+      background-color: var(--eletric);
+    }
+    &--ground {
+      background-color: var(--ground);
+    }
+    &--ice {
+      background-color: var(--ice);
+    }
+    &--fighting {
+      background-color: var(--fighting);
+    }
+    &--flying {
+      background-color: var(--flying);
+    }
+    &--physic {
+      background-color: var(--physic);
+    }
+    &--bug {
+      background-color: var(--bug);
+    }
+    &--ghost {
+      background-color: var(--ghost);
+    }
+    &--dragon {
+      background-color: var(--dragon);
+    }
+    &--dark {
+      background-color: var(--dark);
+    }
+    &--steel {
+      background-color: var(--steel);
+    }
+    &--fairy {
+      background-color: var(--fairy);
+    }
+  }
 }
