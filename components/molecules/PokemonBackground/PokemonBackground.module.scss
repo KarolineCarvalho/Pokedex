@@ -8,12 +8,14 @@
   background-color: var(--grass);
 
   .pokeballContainer {
-    width: 30%;
-    max-width: 200px;
+    margin: auto;
+    width: 60%;
+    max-width: 300px;
     position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translate(-50%, 0);
+    top: 21vh;
+    left: 0;
+    bottom: 0;
+    right: 0;
     z-index: 5;
   }
 

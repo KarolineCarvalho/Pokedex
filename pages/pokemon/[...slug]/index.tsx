@@ -38,7 +38,7 @@ const PokemonPage: NextPage = () => {
         <title>{pokeId}</title>
       </Head>
       <PokemonView />
-      <PokemonHeader />
+      {/* <PokemonHeader /> */}
       <PokemonBackground />
       <PokemonDetails current={page} pokemonID={pokeId} />
     </div>
