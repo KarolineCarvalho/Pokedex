@@ -1,6 +1,5 @@
 import PokemonBackground from "@molecules/PokemonBackground";
 import PokemonHeader from "@molecules/PokemonHeader";
-import PokeNav from "@molecules/PokeNav";
 import PokemonDetails from "@organisms/PokemonDetails";
 import { NextPage } from "next";
 import Head from "next/head";
