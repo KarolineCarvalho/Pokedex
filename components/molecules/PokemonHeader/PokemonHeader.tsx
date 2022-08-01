@@ -25,7 +25,9 @@ const PokemonHeader = ({
     <div className={styles.pokemonHeader}>
       <div className={styles.actionsContainer}>
         <BackArrow />
-        <HeartIcon />
+        <div className={styles["actionsContainer__heart"]}>
+          <HeartIcon />
+        </div>
       </div>
 
       <div className={styles.pokemonInfo}>

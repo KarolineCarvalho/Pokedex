@@ -3,7 +3,7 @@ import MainLayout from "@templates/MainLayout";
 import Head from "next/head";
 import PokedexHeader from "@organisms/PokedexHeader";
 import PokedexMain from "@organisms/PokedexMain";
-import SettingsButton from "@molecules/SettingsButton";
+import SettingsMenu from "@organisms/SettingsMenu";
 
 const Pokedex: NextPage = () => {
   return (
@@ -14,7 +14,7 @@ const Pokedex: NextPage = () => {
       <MainLayout>
         <PokedexHeader />
         <PokedexMain />
-        <SettingsButton />
+        <SettingsMenu />
       </MainLayout>
     </div>
   );

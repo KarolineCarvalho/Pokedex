@@ -3,7 +3,7 @@ import styles from "./PokeballIcon.module.scss";
 
 type Props = {
   color?: string;
-  opacity?: "normal" | "high";
+  opacity?: "normal" | "high" | "solid";
 };
 
 const PokeballIcon = ({ color, opacity }: Props): JSX.Element => {
