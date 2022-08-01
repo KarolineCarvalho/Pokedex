@@ -8,6 +8,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
 import styles from "styles/Pokemon.module.scss";
+import { captilizeFirstLetter } from "@utils/stringUtils";
 
 const getName = (queryResult: string | string[] | undefined) => {
   let pokeId;
@@ -33,14 +34,26 @@ const PokemonPage: NextPage = () => {
   const { pokeId, type } = getName(slug);
   const page = getPage(slug);
 
-  if (!pokeId) return <div>Loading</div>;
   const { pokemon, isLoading, isError } = useSinglePokemon(`pokemon/${pokeId}`);
+  if (!pokeId)
+    return (
+      <div>
+        <Head>
+          <title>
+            {pokemon ? captilizeFirstLetter(pokemon.name) : "Loading"}
+          </title>
+        </Head>
+        Loading
+      </div>
+    );
 
   console.log(pokemon);
   return (
     <div className={styles.pokemonPage}>
       <Head>
-        <title>{pokeId}</title>
+        <title>
+          {pokemon ? captilizeFirstLetter(pokemon.name) : "Loading"}
+        </title>
       </Head>
 
       <PokemonView /* pokemonName={pokemon.name} */ />
