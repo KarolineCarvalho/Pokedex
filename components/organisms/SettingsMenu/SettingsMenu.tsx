@@ -19,7 +19,7 @@ const SettingsMenu = () => {
         <div className={styles[`settingsMenu__items`]}>
           <SettingsItem
             text="Favorite Pokemon"
-            icon={<HeartIcon color="#6C79DB" />}
+            icon={<HeartIcon color="#6C79DB" filled />}
             onClick={handleSearch}
           />
           <SettingsItem

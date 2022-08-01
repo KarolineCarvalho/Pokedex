@@ -13,6 +13,10 @@
   width: 85%;
   justify-content: space-between;
   align-items: center;
+  &__heart {
+    width: 19px;
+    height: 22px;
+  }
 }
 
 .pokemonInfo {
