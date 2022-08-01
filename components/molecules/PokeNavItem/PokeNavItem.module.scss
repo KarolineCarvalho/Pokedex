@@ -1,0 +1,12 @@
+.pokeNavItem {
+  position: relative;
+  padding: 1rem;
+  &__bar {
+    width: 49px;
+    border: 2px solid #6c79db;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

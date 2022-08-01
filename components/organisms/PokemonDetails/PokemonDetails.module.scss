@@ -1,0 +1,17 @@
+.pokemonDetails {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  position: relative;
+  &__topBackground {
+    background-color: white;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 46px;
+    transform: translateY(-100%);
+  }
+}

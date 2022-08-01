@@ -1,5 +1,7 @@
 import PokemonBackground from "@molecules/PokemonBackground";
 import PokemonHeader from "@molecules/PokemonHeader";
+import PokeNav from "@molecules/PokeNav";
+import PokemonDetails from "@organisms/PokemonDetails";
 import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -35,9 +37,9 @@ const PokemonPage: NextPage = () => {
       <Head>
         <title>{pokeId}</title>
       </Head>
-      {pokeId} - {page || "about"}
       <PokemonHeader />
       <PokemonBackground />
+      <PokemonDetails current={page} pokemonID={pokeId} />
     </div>
   );
 };
