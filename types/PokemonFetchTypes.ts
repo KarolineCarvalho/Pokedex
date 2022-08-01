@@ -11,3 +11,7 @@ export type PokemonResults = {
   abilities: PokemonAbility[];
   moves: PokemonMove[];
 };
+
+export type PokemonSpecies = {
+  flavor_text_entries: { language: { name: string }; flavor_text: string }[];
+};
