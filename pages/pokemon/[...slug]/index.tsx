@@ -1,3 +1,6 @@
+import PokemonBackground from "@molecules/PokemonBackground";
+import PokemonHeader from "@molecules/PokemonHeader";
+import PokemonDetails from "@organisms/PokemonDetails";
 import PokemonView from "@organisms/PokemonView";
 import { NextPage } from "next";
 import Head from "next/head";
@@ -25,7 +28,6 @@ const getPage = (queryResult: string | string[] | undefined): PageType => {
 const PokemonPage: NextPage = () => {
   const router = useRouter();
   const { slug } = router.query;
-
   const { pokeId, type } = getName(slug);
   const page = getPage(slug);
 
@@ -35,8 +37,10 @@ const PokemonPage: NextPage = () => {
       <Head>
         <title>{pokeId}</title>
       </Head>
-      {pokeId} - {page || "about"}
       <PokemonView />
+      <PokemonHeader />
+      <PokemonBackground />
+      <PokemonDetails current={page} pokemonID={pokeId} />
     </div>
   );
 };
