@@ -1,21 +1,38 @@
 import HeartIcon from "@atoms/HeartIcon";
 import PokeballIcon from "@atoms/PokeballIcon";
 import SearchIcon from "@atoms/SearchIcon";
+import SearchTray from "@molecules/SearchTray";
 import SettingsButton from "@molecules/SettingsButton";
 import SettingsItem from "@molecules/SettingsItem";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./SettingsMenu.module.scss";
 
 const SettingsMenu = () => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [state, setState] = useState<"closed" | "open" | "tray">("closed");
 
   const handleSearch = () => {
-    console.log("handleSearch");
+    setState("tray");
   };
+
+  const handleExit = () => setState("closed");
+
+  useEffect(() => {
+    const handleKeydown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setState("closed");
+    };
+    window.addEventListener("keydown", handleKeydown);
+    return () => window.removeEventListener("keydown", handleKeydown);
+  });
+
   return (
     <div>
-      {isOpen && <div className={styles[`settingsMenu__backdrop`]}></div>}
-      {isOpen && (
+      {state !== "closed" && (
+        <div
+          className={styles[`settingsMenu__backdrop`]}
+          onClick={handleExit}
+        ></div>
+      )}
+      {state === "open" && (
         <div className={styles[`settingsMenu__items`]}>
           <SettingsItem
             text="Favorite Pokemon"
@@ -39,10 +56,13 @@ const SettingsMenu = () => {
           />
         </div>
       )}
-      <SettingsButton
-        isOpen={isOpen}
-        onClick={() => setIsOpen((state) => !state)}
-      />
+      {state !== "tray" && (
+        <SettingsButton
+          isOpen={state === "open"}
+          onClick={() => setState(state === "closed" ? "open" : "closed")}
+        />
+      )}
+      {state === "tray" && <SearchTray onSearch={() => setState("closed")} />}
     </div>
   );
 };

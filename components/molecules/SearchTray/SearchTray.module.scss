@@ -1,0 +1,19 @@
+.searchTray {
+  background: white;
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: Min(100%, 1024px);
+  border-top-left-radius: 33px;
+  border-top-right-radius: 33px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  flex-direction: column;
+  padding-top: 35px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 18px;
+  z-index: 2;
+}
