@@ -8,6 +8,7 @@ type Props = {
 const SearchTray = ({ onSearch: handleSearch }: Props): JSX.Element => {
   return (
     <div className={styles["searchTray"]}>
+      <div className={styles["searchTray__decorativeRectangle"]}></div>
       <SearchBar onSearch={handleSearch} />
     </div>
   );

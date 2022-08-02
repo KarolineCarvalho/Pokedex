@@ -16,4 +16,14 @@
   padding-right: 25px;
   padding-bottom: 18px;
   z-index: 2;
+  &__decorativeRectangle {
+    position: absolute;
+    top: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 74px;
+    height: 3px;
+    background: #f4f5f4;
+    border-radius: 110px;
+  }
 }
