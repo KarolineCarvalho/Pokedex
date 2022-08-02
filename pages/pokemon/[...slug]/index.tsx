@@ -49,7 +49,9 @@ const PokemonPage: NextPage = () => {
     return (
       <div>
         <Head>
-          <title>{pokeId}</title>
+          <title>
+            {pokemon.name} - {pokeId}
+          </title>
         </Head>
 
         <PokemonView
