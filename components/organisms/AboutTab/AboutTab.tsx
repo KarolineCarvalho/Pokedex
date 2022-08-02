@@ -5,6 +5,7 @@ import { clearString } from "@utils/stringUtils";
 import SizeBox from "@molecules/SizeBox";
 import { getFlavorText } from "./utils/flavorText";
 import { PokemonSpecies } from "types/PokemonFetchTypes";
+import BreedingInfo from "@molecules/BreedingInfo";
 
 type Props = {
   currentPokemon: string;
@@ -26,7 +27,7 @@ const AboutTab = ({ currentPokemon }: Props) => {
     !isLoading && !isError ? getFlavorText(pokemonSpecies) : "loading...";
 
   return (
-    <div className={styles.aboutTab}>
+    <section aria-label="About" className={styles.aboutTab}>
       {!isLoading && !isError && (
         <Text color="black" size="medium" weight="normal">
           {flavor_text}
@@ -35,7 +36,10 @@ const AboutTab = ({ currentPokemon }: Props) => {
       {!isLoadingData && !isErrorData && (
         <SizeBox weight={pokemonData.weight} height={pokemonData.height} />
       )}
-    </div>
+      <BreedingInfo
+        eggGroups={pokemonSpecies?.egg_groups || [{ name: "loading" }]}
+      />
+    </section>
   );
 };
 

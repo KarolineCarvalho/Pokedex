@@ -1,6 +1,10 @@
 import Text from "@atoms/Text";
 import React from "react";
 import styles from "./SizeBox.module.scss";
+import {
+  decimeterToMeter,
+  decikilosToKilos,
+} from "@utils/transformMeasurements";
 
 type Props = {
   height: string;
@@ -29,12 +33,12 @@ const SizeBox = ({ weight, height }: Props): JSX.Element => {
           <tr>
             <td>
               <Text color="grey" size="medium" weight="normal">
-                {height}0 cm
+                {decimeterToMeter(height)} m
               </Text>
             </td>
             <td>
               <Text color="black" size="medium" weight="normal">
-                {weight}00 g
+                {decikilosToKilos(weight)} kg
               </Text>
             </td>
           </tr>

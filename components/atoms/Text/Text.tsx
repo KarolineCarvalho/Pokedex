@@ -6,11 +6,18 @@ type Props = {
   color: "black" | "grey" | "white";
   size: "small" | "medium" | "large";
   weight: "normal" | "bold";
+  capitilize?: boolean;
 };
 
-const Text = ({ children, color, size, weight }: Props): JSX.Element => {
+const Text = ({
+  children,
+  color,
+  size,
+  weight,
+  capitilize,
+}: Props): JSX.Element => {
   const classes = createClasses("text", styles, [color, size, weight]);
-
+  if (capitilize) classes.addClass("capitilize");
   return <p className={classes.getClasses()}>{children}</p>;
 };
 
