@@ -5,15 +5,18 @@ import styles from "./SearchBar.module.scss";
 import { useRouter } from "next/router";
 import { FormEvent } from "react";
 
-type Props = {};
+type Props = {
+  onSearch?: () => void;
+};
 
-const SearchBar = (props: Props): JSX.Element => {
+const SearchBar = ({ onSearch }: Props): JSX.Element => {
   const router = useRouter();
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const search = new FormData(e.currentTarget).get("search");
     if (search) router.push("/pokedex?search=" + search);
+    if (onSearch) onSearch();
   };
   return (
     <form className={styles["searchBar"]} onSubmit={handleSubmit}>
