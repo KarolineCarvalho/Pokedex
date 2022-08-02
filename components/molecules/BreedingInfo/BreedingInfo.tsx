@@ -4,13 +4,16 @@ import Text from "@atoms/Text";
 import { captilizeFirstLetter } from "@utils/stringUtils";
 import React, { useId } from "react";
 import styles from "./BreedingInfo.module.scss";
+import { getGenderRatio } from "./utils/getGenderRatio";
 
 type Props = {
   eggGroups: { name: string }[];
+  gender_ratio: number;
 };
 
-const BreedingInfo = ({ eggGroups }: Props) => {
+const BreedingInfo = ({ eggGroups, gender_ratio }: Props) => {
   const headingId = useId();
+  const ratio = getGenderRatio(gender_ratio);
   return (
     <section aria-labelledby={headingId}>
       <Heading id={headingId} level={3}>
@@ -21,22 +24,31 @@ const BreedingInfo = ({ eggGroups }: Props) => {
           Gender
         </Text>
         <Text weight="normal" color="black" size="medium">
-          <div className={styles["breedingInfo__genders"]}>
-            <div>
+          {ratio === "unknown" ? (
+            <>
               <div className={styles["breedingInfo__icon"]}>
-                <GenderIcon gender="male" color="#6C79DB" />
+                <GenderIcon gender="unknown" color="black" />
               </div>
-              {"   "}
-              87.5%
-            </div>
-            <div>
-              <div className={styles["breedingInfo__icon"]}>
-                <GenderIcon gender="female" color="#F0729F" />
+              {"   "}unknown
+            </>
+          ) : (
+            <div className={styles["breedingInfo__genders"]}>
+              <div>
+                <div className={styles["breedingInfo__icon"]}>
+                  <GenderIcon gender="male" color="#6C79DB" />
+                </div>
+                {"   "}
+                {ratio.male}%
               </div>
-              {"   "}
-              12.5%
+              <div>
+                <div className={styles["breedingInfo__icon"]}>
+                  <GenderIcon gender="female" color="#F0729F" />
+                </div>
+                {"   "}
+                {ratio.female}%
+              </div>
             </div>
-          </div>
+          )}
         </Text>
         <Text weight="normal" color="grey" size="medium">
           Egg Groups

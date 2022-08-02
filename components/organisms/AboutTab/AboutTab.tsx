@@ -38,6 +38,7 @@ const AboutTab = ({ currentPokemon }: Props) => {
       )}
       <BreedingInfo
         eggGroups={pokemonSpecies?.egg_groups || [{ name: "loading" }]}
+        gender_ratio={pokemonSpecies?.gender_rate || -1}
       />
     </section>
   );
