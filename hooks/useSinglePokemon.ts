@@ -1,16 +1,8 @@
+import { fetcher } from "@utils/fetchers";
 import useSWR from "swr";
 
 const useSinglePokemon = (props: string) => {
-  async function fetchPokemon(url: string) {
-    const response = await fetch(url);
-    const data = await response.json();
-    return data;
-  }
-
-  const { data, error } = useSWR(
-    `https://pokeapi.co/api/v2/${props}`,
-    fetchPokemon
-  );
+  const { data, error } = useSWR(`https://pokeapi.co/api/v2/${props}`, fetcher);
 
   return {
     pokemon: data,
