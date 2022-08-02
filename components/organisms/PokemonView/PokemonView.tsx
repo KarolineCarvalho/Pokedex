@@ -33,7 +33,7 @@ const PokemonView = ({
       />
       <PokemonBackground pokemonType={pokemonTypes} />
       <div className={styles.pokemonImg}>
-        <Image src={pokemonImg} alt={pokemonName} />
+        <Image src={pokemonImg} alt={pokemonName} bottom />
       </div>
     </div>
   );
