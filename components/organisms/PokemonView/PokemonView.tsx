@@ -1,14 +1,14 @@
 import Image from "@molecules/Image";
 import PokemonBackground from "@molecules/PokemonBackground";
 import PokemonHeader from "@molecules/PokemonHeader";
-
+import PokemonType from "types/PokemonTypes";
 import styles from "./PokemonView.module.scss";
 
 type Props = {
   pokemonName: string;
-  pokemonTypes: string[];
+  pokemonTypes: PokemonType[];
   pokemonId: string;
-  pokemonSpecies: string;
+  pokemonSpecies: any;
   pokemonImg: string;
 };
 
@@ -19,12 +19,17 @@ const PokemonView = ({
   pokemonSpecies,
   pokemonImg,
 }: Props) => {
+  const extractSpecie = pokemonSpecies.genera.filter(
+    (genus: any) => genus.language.name === "en"
+  )[0].genus;
+
   return (
     <div className={styles.pokemonView}>
       <PokemonHeader
         pokemonName={pokemonName}
         pokemonId={pokemonId}
         pokemonType={pokemonTypes}
+        pokemonSpecie={extractSpecie}
       />
       <PokemonBackground pokemonType={pokemonTypes} />
       <div className={styles.pokemonImg}>

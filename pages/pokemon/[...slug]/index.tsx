@@ -40,7 +40,7 @@ const PokemonPage: NextPage = () => {
     isError: errorSpecies,
   } = useSinglePokemon(`pokemon-species/${pokeId}`);
   if (!pokeId) return <div>Loading...</div>;
-  if (!pokemon) return <div>Loading...</div>;
+  if (!pokemon || !pokemonSpecies) return <div>Loading...</div>;
   const pokeTypes = pokemon.types.map((type: any) => {
     return type.type.name;
   });
