@@ -33,21 +33,36 @@ const PokemonPage: NextPage = () => {
   const page = getPage(slug);
 
   if (!pokeId) return <div>Loading</div>;
-  const { pokemon, isLoading, isError } = useSinglePokemon(`pokemon/${pokeId}`);
-
-  console.log(pokemon);
-  return (
-    <div>
-      <Head>
-        <title>{pokeId}</title>
-      </Head>
-
-      <PokemonView /* pokemonName={pokemon.name} */ />
-      {/* <PokemonHeader /> */}
-      <PokemonBackground />
-      <PokemonDetails current={page} pokemonID={pokeId} />
-    </div>
+  const { pokemon, loading, error } = useSinglePokemon(`pokemon/${pokeId}`);
+  const { pokemonSpecies, loadingSpecies, errorSpecies } = useSinglePokemon(
+    `pokemon-species/${pokeId}`
   );
+  if (loadingSpecies) return <div>carregando...</div>;
+  /* if (pokemonSpecies) console.log(pokemonSpecies); */
+  if (loading) return <div>carregando...</div>;
+  if (pokemon) {
+    const pokeTypes = pokemon.types.map((type) => {
+      return type.type.name;
+    });
+    const pokeImg = pokemon.sprites.other["official-artwork"]["front_default"];
+    /* console.log(pokemon); */
+    return (
+      <div>
+        <Head>
+          <title>{pokeId}</title>
+        </Head>
+
+        <PokemonView
+          pokemonName={pokemon.name}
+          pokemonId={pokemon.id}
+          pokemonTypes={pokeTypes}
+          pokemonImg={pokeImg}
+        />
+
+        <PokemonDetails current={page} pokemonID={pokeId} />
+      </div>
+    );
+  }
 };
 
 export default PokemonPage;

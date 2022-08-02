@@ -18,9 +18,7 @@ const PokemonHeader = ({
   pokemonId,
   pokemonType,
   pokemonSpecie,
-}: Props): JSX.Element => {
-  /* const { pokemon, isLoading } = useSinglePokemon();
-  console.log(pokemon); */
+}: Props) => {
   return (
     <div className={styles.pokemonHeader}>
       <div className={styles.actionsContainer}>
@@ -31,22 +29,25 @@ const PokemonHeader = ({
       </div>
 
       <div className={styles.pokemonInfo}>
-        <Heading white>{pokemonName}</Heading>
+        <div className={styles["pokemonInfo__pokemonName"]}>
+          <Heading white>{pokemonName}</Heading>
+        </div>
+
         <div className={styles["pokemonInfo--justifyToEnd"]}>
           <Text color="white" size="large" weight="bold">
-            {pokemonId}
+            #{pokemonId.toString().padStart(3, "0")}
           </Text>
         </div>
 
         <div className={styles.pokemonInfo__pokemonType}>
-          {/* {pokemonType.map((type) => {
-            <TypeBox type={type} />;
-          })} */}
+          {pokemonType.map((type) => (
+            <TypeBox key={type} type={type} />
+          ))}
         </div>
 
         <div className={styles["pokemonInfo--justifyToEnd"]}>
           <Text color="white" size="medium" weight="normal">
-            {pokemonName}
+            {pokemonSpecie}
           </Text>
         </div>
       </div>

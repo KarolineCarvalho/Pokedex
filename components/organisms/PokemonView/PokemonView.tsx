@@ -5,23 +5,30 @@ import PokemonHeader from "@molecules/PokemonHeader";
 import styles from "./PokemonView.module.scss";
 
 type Props = {
-  backgroundColor: string;
   pokemonName: string;
+  pokemonTypes: string[];
+  pokemonId: string;
+  pokemonSpecies: string;
   pokemonImg: string;
 };
 
-const PokemonView = ({ backgroundColor, pokemonName, pokemonImg }: Props) => {
+const PokemonView = ({
+  pokemonName,
+  pokemonTypes,
+  pokemonId,
+  pokemonSpecies,
+  pokemonImg,
+}: Props) => {
   return (
     <div className={styles.pokemonView}>
-      <PokemonHeader pokemonName={pokemonName} />
-      <PokemonBackground />
+      <PokemonHeader
+        pokemonName={pokemonName}
+        pokemonId={pokemonId}
+        pokemonType={pokemonTypes}
+      />
+      <PokemonBackground pokemonType={pokemonTypes} />
       <div className={styles.pokemonImg}>
-        <Image
-          src={
-            "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
-          }
-          alt={pokemonName}
-        />
+        <Image src={pokemonImg} alt={pokemonName} />
       </div>
     </div>
   );
