@@ -1,5 +1,4 @@
 import PokemonBackground from "@molecules/PokemonBackground";
-import PokemonHeader from "@molecules/PokemonHeader";
 import PokemonDetails from "@organisms/PokemonDetails";
 import PokemonView from "@organisms/PokemonView";
 import useSinglePokemon from "hooks/useSinglePokemon";
@@ -40,8 +39,8 @@ const PokemonPage: NextPage = () => {
     isLoading: loadingSpecies,
     isError: errorSpecies,
   } = useSinglePokemon(`pokemon-species/${pokeId}`);
-  if (!pokeId) return <div>Loading</div>;
-  if (!pokemon) return <div>carregando...</div>;
+  if (!pokeId) return <div>Loading...</div>;
+  if (!pokemon) return <div>Loading...</div>;
   const pokeTypes = pokemon.types.map((type: any) => {
     return type.type.name;
   });
