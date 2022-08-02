@@ -35,30 +35,35 @@ const PokemonPage: NextPage = () => {
   const page = getPage(slug);
 
   const { pokemon, isLoading, isError } = useSinglePokemon(`pokemon/${pokeId}`);
-  if (!pokeId)
-    return (
-      <div>
-        <Head>
-          <title>
-            {pokemon ? captilizeFirstLetter(pokemon.name) : "Loading"}
-          </title>
-        </Head>
-        Loading
-      </div>
-    );
+  const {
+    pokemon: pokemonSpecies,
+    isLoading: loadingSpecies,
+    isError: errorSpecies,
+  } = useSinglePokemon(`pokemon-species/${pokeId}`);
+  if (!pokeId) return <div>Loading</div>;
+  if (!pokemon) return <div>carregando...</div>;
+  const pokeTypes = pokemon.types.map((type: any) => {
+    return type.type.name;
+  });
+  const pokeImg = pokemon.sprites.other["official-artwork"]["front_default"];
 
-  console.log(pokemon);
   return (
     <div className={styles.pokemonPage}>
       <Head>
         <title>
-          {pokemon ? captilizeFirstLetter(pokemon.name) : "Loading"}
+          {pokemon
+            ? captilizeFirstLetter(pokemon.name) + "-" + { pokeId }
+            : "Loading"}
         </title>
       </Head>
-
-      <PokemonView /* pokemonName={pokemon.name} */ />
-      {/* <PokemonHeader /> */}
-      <PokemonBackground />
+      <PokemonView
+        pokemonName={pokemon.name}
+        pokemonId={pokemon.id}
+        pokemonTypes={pokeTypes}
+        pokemonImg={pokeImg}
+        pokemonSpecies={pokemonSpecies}
+      />
+      <PokemonBackground pokemonType={pokeTypes[0]} />
       <PokemonDetails current={page} pokemonID={pokeId} />
     </div>
   );

@@ -2,17 +2,16 @@
   position: absolute;
   width: 100vw;
   height: 100vh;
-
   top: 0;
 
-  background-color: var(--grass);
-
   .pokeballContainer {
+    overflow: hidden;
     margin: auto;
-    width: 60%;
-    max-width: 300px;
+    width: 57%;
+    height: 30%;
+    max-width: 249px;
     position: absolute;
-    top: 21vh;
+    top: -3vh;
     left: 0;
     bottom: 0;
     right: 0;

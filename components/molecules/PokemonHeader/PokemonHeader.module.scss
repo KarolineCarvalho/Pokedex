@@ -29,8 +29,13 @@
   grid: repeat(2, 50%) / repeat(2, 50%);
   z-index: 1;
 
+  &__pokemonName {
+    text-transform: capitalize;
+  }
+
   &__pokemonType {
     display: flex;
+    text-transform: capitalize;
   }
 
   &--justifyToEnd {
