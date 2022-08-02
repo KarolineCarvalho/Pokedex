@@ -28,4 +28,9 @@
   &--bold {
     font-weight: bold;
   }
+
+  /* Capitilize */
+  &--capitilize {
+    text-transform: capitalize;
+  }
 }

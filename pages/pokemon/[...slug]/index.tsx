@@ -7,6 +7,8 @@ import { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
+import styles from "styles/Pokemon.module.scss";
+import { captilizeFirstLetter } from "@utils/stringUtils";
 
 const getName = (queryResult: string | string[] | undefined) => {
   let pokeId;
@@ -32,39 +34,39 @@ const PokemonPage: NextPage = () => {
   const { pokeId, type } = getName(slug);
   const page = getPage(slug);
 
+  const { pokemon, isLoading, isError } = useSinglePokemon(`pokemon/${pokeId}`);
+  const {
+    pokemon: pokemonSpecies,
+    isLoading: loadingSpecies,
+    isError: errorSpecies,
+  } = useSinglePokemon(`pokemon-species/${pokeId}`);
   if (!pokeId) return <div>Loading</div>;
-  const { pokemon, loading, error } = useSinglePokemon(`pokemon/${pokeId}`);
-  const { pokemonSpecies, loadingSpecies, errorSpecies } = useSinglePokemon(
-    `pokemon-species/${pokeId}`
+  if (!pokemon) return <div>carregando...</div>;
+  const pokeTypes = pokemon.types.map((type: any) => {
+    return type.type.name;
+  });
+  const pokeImg = pokemon.sprites.other["official-artwork"]["front_default"];
+
+  return (
+    <div className={styles.pokemonPage}>
+      <Head>
+        <title>
+          {pokemon
+            ? captilizeFirstLetter(pokemon.name) + "-" + { pokeId }
+            : "Loading"}
+        </title>
+      </Head>
+      <PokemonView
+        pokemonName={pokemon.name}
+        pokemonId={pokemon.id}
+        pokemonTypes={pokeTypes}
+        pokemonImg={pokeImg}
+        pokemonSpecies={pokemonSpecies}
+      />
+      <PokemonBackground pokemonType={pokeTypes[0]} />
+      <PokemonDetails current={page} pokemonID={pokeId} />
+    </div>
   );
-  if (loadingSpecies) return <div>carregando...</div>;
-  /* if (pokemonSpecies) console.log(pokemonSpecies); */
-  if (loading) return <div>carregando...</div>;
-  if (pokemon) {
-    const pokeTypes = pokemon.types.map((type) => {
-      return type.type.name;
-    });
-    const pokeImg = pokemon.sprites.other["official-artwork"]["front_default"];
-    /* console.log(pokemon); */
-    return (
-      <div>
-        <Head>
-          <title>
-            {pokemon.name} - {pokeId}
-          </title>
-        </Head>
-
-        <PokemonView
-          pokemonName={pokemon.name}
-          pokemonId={pokemon.id}
-          pokemonTypes={pokeTypes}
-          pokemonImg={pokeImg}
-        />
-
-        <PokemonDetails current={page} pokemonID={pokeId} />
-      </div>
-    );
-  }
 };
 
 export default PokemonPage;

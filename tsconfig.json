@@ -21,6 +21,7 @@
       "@organisms/*": ["components/organisms/*"],
       "@templates/*": ["components/templates/*"],
       "@utils/*": ["utils/*"],
+      "@styles/*": ["styles/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
