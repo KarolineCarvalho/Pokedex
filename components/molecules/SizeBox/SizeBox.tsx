@@ -32,7 +32,7 @@ const SizeBox = ({ weight, height }: Props): JSX.Element => {
         <tbody>
           <tr>
             <td>
-              <Text color="grey" size="medium" weight="normal">
+              <Text color="black" size="medium" weight="normal">
                 {decimeterToMeter(height)} m
               </Text>
             </td>
