@@ -1,0 +1,16 @@
+.trainingInfo {
+  &__infoGroup {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+  }
+  &__icon {
+    width: 14px;
+    height: 12px;
+    display: inline-block;
+    margin-right: 1rem;
+  }
+  &__genders {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}

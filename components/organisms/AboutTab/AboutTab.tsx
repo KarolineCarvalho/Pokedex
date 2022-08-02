@@ -1,11 +1,10 @@
 import Text from "@atoms/Text";
 import useSinglePokemon from "hooks/useSinglePokemon";
 import styles from "./AboutTab.module.scss";
-import { clearString } from "@utils/stringUtils";
 import SizeBox from "@molecules/SizeBox";
 import { getFlavorText } from "./utils/flavorText";
-import { PokemonSpecies } from "types/PokemonFetchTypes";
 import BreedingInfo from "@molecules/BreedingInfo";
+import TrainingInfo from "@molecules/TrainingInfo";
 
 type Props = {
   currentPokemon: string;
@@ -40,6 +39,7 @@ const AboutTab = ({ currentPokemon }: Props) => {
         eggGroups={pokemonSpecies?.egg_groups || [{ name: "loading" }]}
         gender_ratio={pokemonSpecies?.gender_rate || -1}
       />
+      <TrainingInfo baseXP={pokemonData?.base_experience || "loading"} />
     </section>
   );
 };

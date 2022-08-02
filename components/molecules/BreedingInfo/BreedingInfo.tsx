@@ -17,7 +17,7 @@ const BreedingInfo = ({ eggGroups, gender_ratio }: Props) => {
   return (
     <section aria-labelledby={headingId}>
       <Heading id={headingId} level={3}>
-        Breeding Info
+        Breeding
       </Heading>
       <div className={styles["breedingInfo__infoGroup"]}>
         <Text weight="normal" color="grey" size="medium">
