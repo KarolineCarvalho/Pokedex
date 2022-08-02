@@ -3,7 +3,9 @@ import Heading from "@atoms/Heading";
 import HeartIcon from "@atoms/HeartIcon";
 import Text from "@atoms/Text";
 import TypeBox from "@molecules/TypeBox";
-import useSinglePokemon from "hooks/useSinglePokemon";
+import useLocalStorage from "hooks/useLocalStorage";
+import { useState } from "react";
+
 import styles from "./PokemonHeader.module.scss";
 
 type Props = {
@@ -19,12 +21,35 @@ const PokemonHeader = ({
   pokemonType,
   pokemonSpecie,
 }: Props) => {
+  const [favorite, setFavorite] = useState();
+
+  const toggleFavorite = (item: string) => {
+    const isLiked = localStorage.getItem(item);
+    if (isLiked === null) {
+      localStorage.setItem(item, "true");
+      setFavorite(true);
+    }
+    if (isLiked === "true") {
+      localStorage.removeItem(item);
+      setFavorite(false);
+    }
+  };
+
   return (
     <div className={styles.pokemonHeader}>
       <div className={styles.actionsContainer}>
         <BackArrow />
-        <div className={styles["actionsContainer__heart"]}>
-          <HeartIcon />
+        <div
+          className={styles["actionsContainer__heart"]}
+          onClick={() => {
+            toggleFavorite(`${pokemonName}`);
+          }}
+        >
+          {localStorage.getItem(`${pokemonName}`) === null ? (
+            <HeartIcon />
+          ) : (
+            <HeartIcon filled />
+          )}
         </div>
       </div>
 
