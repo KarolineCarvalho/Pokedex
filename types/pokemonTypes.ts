@@ -12,7 +12,7 @@ type PokemonType =
   | "water"
   | "grass"
   | "electr"
-  | "psychc"
+  | "psychic"
   | "ice"
   | "dragon"
   | "dark"
