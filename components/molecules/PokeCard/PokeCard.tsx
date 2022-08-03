@@ -13,7 +13,10 @@ type Props = {
 const PokeCard = ({ pokemon }: Props) => {
   const { id, name, types, sprite } = pokemon;
   const cardClasses = createClasses("pokeCard", styles);
-  if (types.length > 0) cardClasses.addClass("type--" + types[0]);
+
+  types.length > 0 && types[0] !== "normal"
+    ? cardClasses.addClass("type--" + types[0])
+    : cardClasses.addClass("type--" + types[1]);
   return (
     <div className={cardClasses.getClasses()}>
       <div className={cardClasses.getElement("id")}>

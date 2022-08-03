@@ -46,7 +46,7 @@ const PokemonHeader = ({
             toggleFavorite(`${pokemonName}`);
           }}
         >
-          {favorite ? <HeartIcon /> : <HeartIcon filled />}
+          {!favorite ? <HeartIcon /> : <HeartIcon filled />}
         </div>
       </div>
 
