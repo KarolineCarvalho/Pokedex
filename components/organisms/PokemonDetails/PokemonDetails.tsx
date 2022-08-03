@@ -32,7 +32,7 @@ const PokemonDetails = ({ current, pokemonID }: Props) => {
       <div className={styles["pokemonDetails__topBackground"]}></div>
       <PokeNav tabs={tabs} currentPokemon={pokemonID} />
       {current === "about" && <AboutTab currentPokemon={pokemonID} />}
-      {current === "evolution" && <EvolutionTab currentPokemon={pokemonID} />}
+      {current === "basestats" && <BaseStatsTab currentPokemon={pokemonID} />}
       {current === "evolution" && <EvolutionTab currentPokemon={pokemonID} />}
     </div>
   );
