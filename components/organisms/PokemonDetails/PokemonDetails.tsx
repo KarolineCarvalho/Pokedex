@@ -3,6 +3,7 @@ import AboutTab from "@organisms/AboutTab";
 import EvolutionTab from "@organisms/EvolutionTab";
 import BaseStatsTab from "@organisms/BaseStatsTab";
 import styles from "./PokemonDetails.module.scss";
+import MovesTab from "@organisms/MovesTab";
 
 type TabsURL = "about" | "basestats" | "evolution" | "moves";
 
@@ -34,6 +35,7 @@ const PokemonDetails = ({ current, pokemonID }: Props) => {
       {current === "about" && <AboutTab currentPokemon={pokemonID} />}
       {current === "basestats" && <BaseStatsTab currentPokemon={pokemonID} />}
       {current === "evolution" && <EvolutionTab currentPokemon={pokemonID} />}
+      {current === "moves" && <MovesTab currentPokemon={pokemonID} />}
     </div>
   );
 };
