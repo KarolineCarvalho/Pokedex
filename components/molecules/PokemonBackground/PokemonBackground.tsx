@@ -11,7 +11,15 @@ type Props = {
 
 const PokemonBackground = ({ pokemonType }: Props): JSX.Element => {
   const classes = createClasses("pokemonBackground", styles);
-  if (pokemonType.length > 0) classes.addClass("type--" + pokemonType[0]);
+
+  (pokemonType.length > 0 || pokemonType.length === 1) &&
+  pokemonType[0] !== "normal"
+    ? classes.addClass("type--" + pokemonType[0])
+    : classes.addClass("type--" + pokemonType[1]);
+
+  if (pokemonType.length === 1 && pokemonType[0] === "normal")
+    classes.addClass("type--" + pokemonType[0]);
+
   return (
     <div className={classes.getClasses()}>
       <SquareIcon />
