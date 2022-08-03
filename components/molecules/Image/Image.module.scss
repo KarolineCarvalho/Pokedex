@@ -13,6 +13,9 @@
     animation-name: reveal;
     animation-duration: 0.3s;
   }
+  &--blur {
+    filter: blur(30px);
+  }
 }
 
 @keyframes reveal {

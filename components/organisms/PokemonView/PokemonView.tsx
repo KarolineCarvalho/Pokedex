@@ -47,6 +47,7 @@ const PokemonView = ({ pokeId }: Props) => {
           alt={pokemon?.name || "?"}
           bottom
           blurLoading
+          blur={!pokeImg}
         />
       </div>
       <div className={shadowPreviousClasses.getClasses()}>
