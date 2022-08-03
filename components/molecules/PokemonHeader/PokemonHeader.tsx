@@ -3,7 +3,7 @@ import Heading from "@atoms/Heading";
 import HeartIcon from "@atoms/HeartIcon";
 import Text from "@atoms/Text";
 import TypeBox from "@molecules/TypeBox";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PokemonType from "models/PokemonTypes";
 import styles from "./PokemonHeader.module.scss";
 
@@ -20,9 +20,11 @@ const PokemonHeader = ({
   pokemonType,
   pokemonSpecie,
 }: Props) => {
-  const [favorite, setFavorite] = useState<boolean>(
-    !!localStorage.getItem(pokemonName)
-  );
+  const [favorite, setFavorite] = useState<boolean>(false);
+
+  useEffect(() => {
+    setFavorite(!!localStorage.getItem(pokemonName));
+  }, [pokemonName]);
 
   const toggleFavorite = (item: string) => {
     const isLiked = localStorage.getItem(item);
