@@ -1,3 +1,4 @@
+import ClientOnlyPortal from "@atoms/ClientOnlyPortal";
 import HeartIcon from "@atoms/HeartIcon";
 import PokeballIcon from "@atoms/PokeballIcon";
 import SearchIcon from "@atoms/SearchIcon";
@@ -27,10 +28,12 @@ const SettingsMenu = () => {
   return (
     <div>
       {state !== "closed" && (
-        <div
-          className={styles[`settingsMenu__backdrop`]}
-          onClick={handleExit}
-        ></div>
+        <ClientOnlyPortal selector="#backdrop">
+          <div
+            className={styles[`settingsMenu__backdrop`]}
+            onClick={handleExit}
+          ></div>
+        </ClientOnlyPortal>
       )}
       {state === "open" && (
         <div className={styles[`settingsMenu__items`]}>
