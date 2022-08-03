@@ -34,6 +34,7 @@ const PokemonPage: NextPage = () => {
   const page = getPage(slug);
 
   const { pokemon, isLoading, isError } = useSinglePokemon(`pokemon/${pokeId}`);
+
   const {
     pokemon: pokemonSpecies,
     isLoading: loadingSpecies,
@@ -51,7 +52,7 @@ const PokemonPage: NextPage = () => {
       <Head>
         <title>
           {pokemon
-            ? captilizeFirstLetter(pokemon.name) + "-" + { pokeId }
+            ? captilizeFirstLetter(pokemon.name) + " - " + pokemon.id
             : "Loading"}
         </title>
       </Head>
