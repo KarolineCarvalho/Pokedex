@@ -1,6 +1,6 @@
-import Pokemon from "types/Pokemon";
-import PokemonType from "types/PokemonTypes";
-import { PokemonBasicInfo, PokemonResults } from "types/PokemonFetchTypes";
+import Pokemon from "models/Pokemon";
+import PokemonType from "models/PokemonTypes";
+import { PokemonBasicInfo, PokemonResults } from "models/PokemonFetchTypes";
 
 const extractTypes = (pokemon: PokemonResults): PokemonType[] => {
   const newTypes: PokemonType[] = [pokemon.types[0].type.name];

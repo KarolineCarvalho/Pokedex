@@ -3,7 +3,7 @@ import {
   PokemonBasicInfo,
   PokemonBasicResults,
   PokemonResults,
-} from "types/PokemonFetchTypes";
+} from "models/PokemonFetchTypes";
 import { fetcher, multiFetcher } from "@utils/fetchers";
 import { combinePokemonData } from "@utils/combinePokemonData";
 

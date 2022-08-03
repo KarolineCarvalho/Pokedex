@@ -3,9 +3,7 @@ import PokemonBackground from "@molecules/PokemonBackground";
 import PokemonHeader from "@molecules/PokemonHeader";
 import ShadowPokemon from "@molecules/ShadowPokemon";
 import createClasses from "@utils/createClasses";
-import useSinglePokemon from "hooks/useSinglePokemon";
-import Link from "next/link";
-import PokemonType from "types/PokemonTypes";
+import PokemonType from "models/PokemonTypes";
 import styles from "./PokemonView.module.scss";
 
 type Props = {

@@ -4,7 +4,7 @@ import HeartIcon from "@atoms/HeartIcon";
 import Text from "@atoms/Text";
 import TypeBox from "@molecules/TypeBox";
 import { useState } from "react";
-import PokemonType from "types/PokemonTypes";
+import PokemonType from "models/PokemonTypes";
 import styles from "./PokemonHeader.module.scss";
 
 type Props = {

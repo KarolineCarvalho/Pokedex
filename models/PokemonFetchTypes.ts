@@ -1,4 +1,4 @@
-import PokemonType from "types/PokemonTypes";
+import PokemonType from "models/PokemonTypes";
 import { PokemonAbility, PokemonMove } from "./Pokemon";
 
 export type PokemonBasicResults = { name: string; url: string };
