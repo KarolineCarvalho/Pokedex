@@ -1,6 +1,7 @@
 .pokemonView {
   height: 65vh;
   position: relative;
+  overflow: hidden;
   .pokemonImg {
     margin: auto;
     width: 76%;
