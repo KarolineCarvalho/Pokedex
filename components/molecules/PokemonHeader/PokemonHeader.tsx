@@ -20,7 +20,6 @@ const PokemonHeader = ({
   pokemonType,
   pokemonSpecie,
 }: Props) => {
-  console.log("pokemonSpecie string", pokemonSpecie);
   const [favorite, setFavorite] = useState<boolean>(
     !!localStorage.getItem(pokemonName)
   );
@@ -47,7 +46,7 @@ const PokemonHeader = ({
             toggleFavorite(`${pokemonName}`);
           }}
         >
-          {favorite ? <HeartIcon /> : <HeartIcon filled />}
+          {!favorite ? <HeartIcon /> : <HeartIcon filled />}
         </div>
       </div>
 
