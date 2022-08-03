@@ -2,7 +2,11 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  &__bottom {
+  &--bottom {
     object-position: bottom;
+  }
+  &--shadow {
+    filter: brightness(0);
+    opacity: 0.5;
   }
 }

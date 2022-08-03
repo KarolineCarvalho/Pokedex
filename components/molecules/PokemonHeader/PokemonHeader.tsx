@@ -9,7 +9,7 @@ import styles from "./PokemonHeader.module.scss";
 
 type Props = {
   pokemonName: string;
-  pokemonId: string;
+  pokemonId: number;
   pokemonType: PokemonType[];
   pokemonSpecie: string;
 };
