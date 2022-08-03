@@ -1,8 +1,9 @@
 .statsItem {
   display: grid;
-  grid-template-columns: 20% 7% 70%;
+  grid-template-columns: 13.5% 7% 78%;
+  column-gap: 10px;
   align-items: center;
-  margin: 1% 0;
+  margin: 1.5% 0;
 
   &__name {
     text-transform: capitalize;

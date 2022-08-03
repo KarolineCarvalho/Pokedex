@@ -9,6 +9,10 @@ type Props = {
 };
 
 const BaseStatsItem = ({ statsName, statsLevel, base }: Props): JSX.Element => {
+  if (statsName === "special-attack") statsName = "Sp. Atk";
+  if (statsName === "special-defense") statsName = "Sp. Def";
+  if (statsName === "hp") statsName = "HP";
+
   return (
     <div className={styles.statsItem}>
       <div className={styles.statsItem__name}>
