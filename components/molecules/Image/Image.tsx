@@ -14,7 +14,7 @@ const Image = ({ src, alt, bottom, shadow }: Props): JSX.Element => {
   if (shadow) classes.addClass("shadow");
   return (
     <picture>
-      <source type="image/webp" src={src} />
+      <source type="image/webp" src={"src"} />
       <img src={src} alt={alt} className={classes.getClasses()} />
     </picture>
   );

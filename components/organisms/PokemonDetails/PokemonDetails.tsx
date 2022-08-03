@@ -9,7 +9,7 @@ type TabsURL = "about" | "basestats" | "evolution" | "moves";
 
 type Props = {
   current: TabsURL;
-  pokemonID: string;
+  pokemonID: string | undefined;
 };
 
 const PokemonDetails = ({ current, pokemonID }: Props) => {
@@ -31,11 +31,19 @@ const PokemonDetails = ({ current, pokemonID }: Props) => {
   return (
     <div className={styles["pokemonDetails"]}>
       <div className={styles["pokemonDetails__topBackground"]}></div>
-      <PokeNav tabs={tabs} currentPokemon={pokemonID} />
-      {current === "about" && <AboutTab currentPokemon={pokemonID} />}
-      {current === "basestats" && <BaseStatsTab currentPokemon={pokemonID} />}
-      {current === "evolution" && <EvolutionTab currentPokemon={pokemonID} />}
-      {current === "moves" && <MovesTab currentPokemon={pokemonID} />}
+      <PokeNav tabs={tabs} currentPokemon={pokemonID || 0} />
+      {!!pokemonID && current === "about" && (
+        <AboutTab currentPokemon={pokemonID} />
+      )}
+      {!!pokemonID && current === "basestats" && (
+        <BaseStatsTab currentPokemon={pokemonID} />
+      )}
+      {!!pokemonID && current === "evolution" && (
+        <EvolutionTab currentPokemon={pokemonID} />
+      )}
+      {!!pokemonID && current === "moves" && (
+        <MovesTab currentPokemon={pokemonID} />
+      )}
     </div>
   );
 };

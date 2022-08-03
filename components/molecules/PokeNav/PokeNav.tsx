@@ -8,7 +8,7 @@ type Props = {
     display: string;
     current: boolean;
   }[];
-  currentPokemon: string;
+  currentPokemon: string | number;
 };
 
 const PokeNav = ({ tabs, currentPokemon }: Props) => {
