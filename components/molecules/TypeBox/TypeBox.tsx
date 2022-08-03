@@ -1,5 +1,5 @@
 import Text from "@atoms/Text";
-import PokemonType from "types/PokemonTypes";
+import PokemonType from "models/PokemonTypes";
 import styles from "./TypeBox.module.scss";
 
 type Props = {

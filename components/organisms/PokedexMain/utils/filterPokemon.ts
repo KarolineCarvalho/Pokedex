@@ -1,4 +1,4 @@
-import Pokemon from "types/Pokemon";
+import Pokemon from "models/Pokemon";
 
 export const filterPokemon = (
   search: string | string[] | undefined,

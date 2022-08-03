@@ -3,7 +3,7 @@ import Text from "@atoms/Text";
 import Image from "@molecules/Image";
 import TypeBox from "@molecules/TypeBox";
 import createClasses from "@utils/createClasses";
-import Pokemon from "types/Pokemon";
+import Pokemon from "models/Pokemon";
 import styles from "./PokeCard.module.scss";
 
 type Props = {

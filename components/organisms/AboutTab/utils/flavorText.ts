@@ -1,6 +1,6 @@
 import { clearString } from "@utils/stringUtils";
 
-import { PokemonSpecies } from "types/PokemonFetchTypes";
+import { PokemonSpecies } from "models/PokemonFetchTypes";
 
 export const getFlavorText = (pokemon: PokemonSpecies) => {
   let filteredFlavor = pokemon.flavor_text_entries.filter(
