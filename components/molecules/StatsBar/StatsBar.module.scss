@@ -1,0 +1,21 @@
+.chartBar {
+  height: 10%;
+  width: 100%;
+  border-radius: 12px;
+  background-color: #f4f5f4;
+  overflow: hidden;
+  display: flex;
+
+  justify-content: flex-start;
+
+  &__fill {
+    transition: all 0.4s ease-out;
+
+    &--red {
+      background-color: #fb6c6c;
+    }
+    &--green {
+      background-color: #4bc07a;
+    }
+  }
+}
