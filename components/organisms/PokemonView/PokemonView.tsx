@@ -46,6 +46,7 @@ const PokemonView = ({ pokeId }: Props) => {
           src={pokeImg || "/images/missingno.webp"}
           alt={pokemon?.name || "?"}
           bottom
+          blurLoading
         />
       </div>
       <div className={shadowPreviousClasses.getClasses()}>

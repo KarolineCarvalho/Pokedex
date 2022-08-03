@@ -9,4 +9,17 @@
     filter: brightness(0);
     opacity: 0.5;
   }
+  &--blurLoading {
+    animation-name: reveal;
+    animation-duration: 0.3s;
+  }
+}
+
+@keyframes reveal {
+  from {
+    filter: blur(30px);
+  }
+  to {
+    filter: blur(0);
+  }
 }

@@ -30,10 +30,10 @@ const getPage = (queryResult: string | string[] | undefined): PageType => {
 const PokemonPage: NextPage = () => {
   const router = useRouter();
   const { slug } = router.query;
-  const { pokeId, type } = getName(slug);
+  const { pokeId } = getName(slug);
   const page = getPage(slug);
 
-  const { pokemon, isLoading, isError } = useSinglePokemon(`pokemon/${pokeId}`);
+  const { pokemon } = useSinglePokemon(`pokemon/${pokeId}`);
 
   return (
     <div className={styles.pokemonPage}>
