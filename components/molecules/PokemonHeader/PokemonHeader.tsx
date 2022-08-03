@@ -9,7 +9,7 @@ import styles from "./PokemonHeader.module.scss";
 
 type Props = {
   pokemonName: string;
-  pokemonId: string;
+  pokemonId: number;
   pokemonType: PokemonType[];
   pokemonSpecie: string;
 };
@@ -20,7 +20,6 @@ const PokemonHeader = ({
   pokemonType,
   pokemonSpecie,
 }: Props) => {
-  console.log("pokemonSpecie string", pokemonSpecie);
   const [favorite, setFavorite] = useState<boolean>(
     !!localStorage.getItem(pokemonName)
   );

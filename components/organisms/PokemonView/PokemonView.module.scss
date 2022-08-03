@@ -12,4 +12,18 @@
     right: 0;
     z-index: 10;
   }
+  .pokemonShadow {
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 60%;
+    &--previous {
+      left: 0;
+      transform: translateX(-35%);
+    }
+    &--next {
+      right: 0;
+      transform: translateX(35%);
+    }
+  }
 }

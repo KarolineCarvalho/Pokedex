@@ -62,7 +62,7 @@ const PokemonPage: NextPage = () => {
         pokemonImg={pokeImg}
         pokemonSpecies={pokemonSpecies}
       />
-      <PokemonBackground pokemonType={pokeTypes[0]} />
+
       <PokemonDetails current={page} pokemonID={pokeId} />
     </div>
   );
