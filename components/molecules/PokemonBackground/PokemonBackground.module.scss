@@ -34,7 +34,7 @@
     &--poison {
       background-color: var(--poison);
     }
-    &--eletric {
+    &--electric {
       background-color: var(--eletric);
     }
     &--ground {
@@ -69,6 +69,9 @@
     }
     &--fairy {
       background-color: var(--fairy);
+    }
+    &--rock {
+      background-color: var(--rock);
     }
   }
 }
