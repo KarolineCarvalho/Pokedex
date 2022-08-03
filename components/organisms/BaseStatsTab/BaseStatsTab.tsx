@@ -6,32 +6,38 @@ type Props = {
   currentPokemon: string;
 };
 
-const BaseStatsTab = ({ currentPokemon }: Props) => {
+const BaseStatsTab = ({ currentPokemon }: Props): JSX.Element => {
   const { pokemon, isLoading, isError } = useSinglePokemon(
     `pokemon/${currentPokemon}`
   );
 
-  if (isLoading) <div>Loading...</div>;
-  if (pokemon) {
-    const pokemonStats = pokemon.stats.map((item: any) => {
-      return { stat: item.stat.name, statLevel: item.base_stat };
-    });
+  if (!pokemon) return <div>Loading...</div>;
 
-    const total = [pokemonStats][0]
-      .map((item: any) => item.statLevel)
-      .reduce((prev: number, curr: number) => prev + curr, 0);
+  const pokemonStats = pokemon.stats.map((item: any) => {
+    return {
+      stat: item.stat.name,
+      statLevel: item.base_stat,
+    };
+  });
 
-    return (
-      <div className={styles.statsTab}>
-        {pokemonStats.map((item: any) => {
-          return (
-            <BaseStatsItem statsName={item.stat} statsLevel={item.statLevel} />
-          );
-        })}
+  const total = [pokemonStats][0]
+    .map((item: any) => item.statLevel)
+    .reduce((prev: number, curr: number) => prev + curr, 0);
 
-        <BaseStatsItem statsName={"Total"} statsLevel={total} />
-      </div>
-    );
-  }
+  return (
+    <div className={styles.statsTab}>
+      {pokemonStats.map((item: any) => {
+        return (
+          <BaseStatsItem
+            key={item.stat}
+            statsName={item.stat}
+            statsLevel={item.statLevel}
+          />
+        );
+      })}
+
+      <BaseStatsItem statsName={"Total"} statsLevel={total} />
+    </div>
+  );
 };
 export default BaseStatsTab;
