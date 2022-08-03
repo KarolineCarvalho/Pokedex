@@ -3,20 +3,23 @@ import StatsBar from "@molecules/StatsBar";
 import styles from "./BaseStatsItem.module.scss";
 
 type Props = {
-  StatsName: string;
-  StatsLevel: string;
+  statsName: string;
+  statsLevel: number;
 };
 
-const BaseStatsItem = ({ StatsName, StatsLevel }: Props): JSX.Element => {
+const BaseStatsItem = ({ statsName, statsLevel }: Props): JSX.Element => {
   return (
     <div className={styles.statsItem}>
-      <Text size="medium" color="grey" weight="normal">
-        Defense
-      </Text>
+      <div className={styles.statsItem__name}>
+        <Text size="medium" color="grey" weight="normal">
+          {statsName}
+        </Text>
+      </div>
+
       <Text size="medium" color="black" weight="normal">
-        45
+        {statsLevel}
       </Text>
-      <StatsBar statsValue={51} />
+      <StatsBar statsValue={statsLevel} />
     </div>
   );
 };
