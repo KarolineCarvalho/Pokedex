@@ -1,0 +1,30 @@
+.newsItem {
+  display: grid;
+
+  grid-column-gap: 20px;
+
+  grid-template:
+    "title img" 50%
+    "date img" 50%/40% 50%;
+
+  @media (max-width: 938px) {
+    width: 100%;
+    margin: 0 auto;
+    grid-template:
+      "title img" 50%
+      "date img" 50%/40% 50%;
+    padding-bottom: 2%;
+    border-bottom: 2px solid #ebebeb;
+  }
+
+  &__img {
+    grid-area: img;
+  }
+  &__title {
+    grid-area: title;
+    align-self: center;
+  }
+  &__date {
+    grid-area: date;
+  }
+}

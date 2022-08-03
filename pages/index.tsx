@@ -4,6 +4,7 @@ import MainLayout from "@templates/MainLayout";
 import HomeSearchSection from "@organisms/HomeSearchSection";
 import HomeNavigation from "@organisms/HomeNavigation";
 import styles from "../styles/Home.module.css";
+import NewsSection from "@organisms/NewsSection";
 
 const Home: NextPage = () => {
   return (
@@ -17,6 +18,7 @@ const Home: NextPage = () => {
         <MainLayout>
           <HomeSearchSection />
           <HomeNavigation />
+          <NewsSection />
         </MainLayout>
       </main>
     </div>
