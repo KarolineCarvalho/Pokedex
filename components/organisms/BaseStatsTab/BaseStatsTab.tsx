@@ -32,11 +32,12 @@ const BaseStatsTab = ({ currentPokemon }: Props): JSX.Element => {
             key={item.stat}
             statsName={item.stat}
             statsLevel={item.statLevel}
+            base={255}
           />
         );
       })}
 
-      <BaseStatsItem statsName={"Total"} statsLevel={total} />
+      <BaseStatsItem statsName={"Total"} statsLevel={total} base={1530} />
     </div>
   );
 };

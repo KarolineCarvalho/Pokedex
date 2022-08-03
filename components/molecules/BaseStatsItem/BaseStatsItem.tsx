@@ -5,9 +5,10 @@ import styles from "./BaseStatsItem.module.scss";
 type Props = {
   statsName: string;
   statsLevel: number;
+  base: 255 | 1530;
 };
 
-const BaseStatsItem = ({ statsName, statsLevel }: Props): JSX.Element => {
+const BaseStatsItem = ({ statsName, statsLevel, base }: Props): JSX.Element => {
   return (
     <div className={styles.statsItem}>
       <div className={styles.statsItem__name}>
@@ -19,7 +20,7 @@ const BaseStatsItem = ({ statsName, statsLevel }: Props): JSX.Element => {
       <Text size="medium" color="black" weight="normal">
         {statsLevel}
       </Text>
-      <StatsBar statsValue={statsLevel} />
+      <StatsBar statsValue={statsLevel} base={base} />
     </div>
   );
 };

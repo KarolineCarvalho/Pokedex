@@ -3,14 +3,15 @@ import styles from "./StatsBar.module.scss";
 
 type Props = {
   statsValue: number;
+  base: 255 | 1530;
 };
 
-const StatsBar = ({ statsValue }: Props): JSX.Element => {
+const StatsBar = ({ statsValue, base }: Props): JSX.Element => {
   let barFill;
 
   const classes = createClasses("chartBar", styles);
 
-  barFill = Math.round((statsValue / 255) * 100);
+  barFill = Math.round((statsValue / base) * 100);
 
   const fillCondition =
     barFill > 50
