@@ -36,7 +36,7 @@ const NewsSection: NextPage = () => {
         </Text>
       </div>
       <div className={styles.news__img}>
-        <Image src="/images/news/newsContentImg.png" />
+        <Image src="/images/news/newsContentImg.png" alt="news content" />
       </div>
       <div className={styles.news__content}>
         <Text size="large" weight="normal" color="grey">
