@@ -14,6 +14,8 @@ import Text from "@atoms/Text";
 
 type Card = Pick<Pokemon, "id" | "name" | "types" | "sprite" | "abilities">;
 
+const itemsOnPage = 24;
+
 const PokedexMain = (): JSX.Element => {
   const router = useRouter();
   const { search } = router.query;
@@ -74,18 +76,20 @@ const PokedexMain = (): JSX.Element => {
         )}
         <Grid type="pokedex">
           {pokemonFiltered &&
-            pokemonFiltered.slice(0, count * 24).map((singlePokemon) => (
-              <Link
-                href={`/pokemon/${singlePokemon.id}`}
-                key={singlePokemon.id}
-              >
-                <a>
-                  <PokeCard pokemon={singlePokemon}></PokeCard>
-                </a>
-              </Link>
-            ))}
+            pokemonFiltered
+              .slice(0, count * itemsOnPage)
+              .map((singlePokemon) => (
+                <Link
+                  href={`/pokemon/${singlePokemon.id}`}
+                  key={singlePokemon.id}
+                >
+                  <a>
+                    <PokeCard pokemon={singlePokemon}></PokeCard>
+                  </a>
+                </Link>
+              ))}
         </Grid>
-        {pokemonFiltered && (
+        {pokemonFiltered && pokemonFiltered.length > count * itemsOnPage && (
           <button
             type="button"
             onClick={handleLoadMore}
