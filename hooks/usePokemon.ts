@@ -1,49 +1,64 @@
 import useSWR from "swr";
-import {
-  PokemonBasicInfo,
-  PokemonBasicResults,
-  PokemonResults,
-} from "models/PokemonFetchTypes";
-import { fetcher, multiFetcher } from "@utils/fetchers";
-import { combinePokemonData } from "@utils/combinePokemonData";
-import Pokemon from "@models/Pokemon";
-import { useState } from "react";
+import { request, gql } from "graphql-request";
+import { graphQLPKList, spriteparsedPKList } from "@models/PokemonFetchTypes";
 
-const usePokemon = (fallback: Pokemon[]) => {
-  const [nPokemonLoaded, setNPokemonLoaded] = useState(25);
-  const { data: pokemonBasicInfo, error } = useSWR<PokemonBasicInfo>(
-    `https://pokeapi.co/api/v2/pokemon`,
-    () =>
-      fetcher(
-        `https://pokeapi.co/api/v2/pokemon?limit=${nPokemonLoaded}&offset=0`
-      ),
-    {
-      fallback: { "https://pokeapi.co/api/v2/pokemon": { results: fallback } },
-      onSuccess: () => {
-        console.log("foi ", nPokemonLoaded);
-        if (nPokemonLoaded < 900) setNPokemonLoaded((cur) => cur + 25);
-      },
+type QueryResult = {
+  pokemon_v2_pokemon: graphQLPKList[];
+};
+
+const query = gql`
+  {
+    pokemon_v2_pokemon(limit: 20) {
+      name
+      id
+      pokemon_v2_pokemonsprites {
+        sprites
+      }
+      pokemon_v2_pokemontypes {
+        pokemon_v2_type {
+          pokemon_v2_typenames(
+            where: { pokemon_v2_language: { name: { _eq: "en" } } }
+          ) {
+            name
+          }
+        }
+      }
+      pokemon_v2_pokemonabilities(where: { pokemon_v2_ability: {} }) {
+        pokemon_v2_ability {
+          pokemon_v2_abilitynames(
+            where: { pokemon_v2_language: { name: { _eq: "en" } } }
+          ) {
+            name
+          }
+        }
+      }
     }
-  );
+  }
+`;
 
-  const urls = pokemonBasicInfo?.results.map(
-    (pokemon: PokemonBasicResults) => pokemon.url
+const graphQLFetcher = async (query: string) => {
+  const data = await request("https://beta.pokeapi.co/graphql/v1beta", query);
+  const sprites = data.pokemon_v2_pokemon.map(
+    (result: { pokemon_v2_pokemonsprites: { sprites: string }[] }) =>
+      result.pokemon_v2_pokemonsprites[0].sprites.replace('\\"', '"')
   );
-  const { data: pokemonData, error: error2 } = useSWR<PokemonResults[]>(
-    urls,
-    multiFetcher,
-    {
-      fallback: { "https://pokeapi.co/api/v2/pokemon": fallback },
-      revalidateOnFocus: false,
-      revalidateOnReconnect: false,
-    }
+  const spritesParsed = await Promise.all(
+    sprites.map((result: string) => JSON.parse(result))
   );
+  const parsedData = data.pokemon_v2_pokemon.map(
+    (result: graphQLPKList, i: number) => ({
+      ...result,
+      pokemon_v2_pokemonsprites: [{ sprites: spritesParsed[i] }],
+    })
+  );
+  return parsedData;
+};
 
-  let pokemonFinalData = combinePokemonData(pokemonBasicInfo, pokemonData);
-
+const usePokemon = () => {
+  const { data, error } = useSWR<spriteparsedPKList[]>(query, graphQLFetcher);
   return {
-    pokemon: pokemonFinalData || fallback,
-    isLoading: !error && !error2 && !pokemonFinalData,
+    pokemon: data,
+    isLoading: !error && !data,
     isError: error,
   };
 };

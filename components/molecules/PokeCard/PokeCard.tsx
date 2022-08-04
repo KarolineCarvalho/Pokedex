@@ -15,9 +15,9 @@ const PokeCard = ({ pokemon }: Props) => {
   const { id, name, types, sprite } = pokemon;
   const cardClasses = createClasses("pokeCard", styles);
 
-  types.length > 0 && types[0] !== "normal"
-    ? cardClasses.addClass("type--" + types[0])
-    : cardClasses.addClass("type--" + types[1]);
+  types.length < 2 || types[0].toLowerCase() !== "normal"
+    ? cardClasses.addClass("type--" + types[0].toLowerCase())
+    : cardClasses.addClass("type--" + types[1].toLowerCase());
   return (
     <div className={cardClasses.getClasses()}>
       <div className={cardClasses.getElement("id")}>
