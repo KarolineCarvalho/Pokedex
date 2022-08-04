@@ -20,15 +20,15 @@ const PokeCard = ({ pokemon }: Props) => {
     ? cardClasses.addClass("type--" + types[0])
     : cardClasses.addClass("type--" + types[1]);
 
-  if (!listState) {
+  if (listState) {
     cardClasses.addClass("singleColumn");
   }
 
-  const listVwModifier = listState ? "" : "--singleColumn";
+  const listVwModifier = !listState ? "" : "--singleColumn";
 
   return (
     <>
-      {listState ? (
+      {!listState ? (
         <div className={cardClasses.getClasses()}>
           <div className={cardClasses.getElement("id")}>
             <Text color="white" size="medium" weight="normal">
