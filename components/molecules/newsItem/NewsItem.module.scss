@@ -1,6 +1,6 @@
 .newsItem {
   display: grid;
-
+  height: 100%;
   grid-column-gap: 20px;
 
   grid-template:
@@ -19,6 +19,8 @@
 
   &__img {
     grid-area: img;
+    border-radius: 31px;
+    overflow: hidden;
   }
   &__title {
     grid-area: title;

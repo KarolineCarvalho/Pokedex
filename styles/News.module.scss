@@ -1,0 +1,17 @@
+.news {
+  margin: 10vh auto 0 auto;
+  height: 100%;
+  width: 90vw;
+  max-width: 800px;
+
+  &__img {
+    height: 250px;
+    width: 100%;
+    margin: 5vh auto 3vh auto;
+  }
+  &__content {
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 2vh auto 3vh auto;
+  }
+}

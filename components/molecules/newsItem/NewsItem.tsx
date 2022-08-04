@@ -4,22 +4,39 @@ import Text from "@atoms/Text";
 import Image from "@molecules/Image";
 import styles from "./NewsItem.module.scss";
 
-const NewsItem = (): JSX.Element => {
+type Props = {
+  newsTitle: string;
+  newsDate: string;
+  newsImage: string;
+  imageAlt: string;
+};
+
+const NewsItem = ({
+  newsTitle,
+  newsDate,
+  newsImage,
+  imageAlt,
+}: Props): JSX.Element => {
+  console.log(newsImage);
   return (
     <div className={styles.newsItem}>
       <div className={styles["newsItem__title"]}>
         <Text size="large" weight="normal" color="black">
-          Pokémon Rumble Rush Arrives Soon
+          {newsTitle}
         </Text>
       </div>
       <div className={styles["newsItem__date"]}>
         <Text size="medium" weight="normal" color="grey">
-          15 May 2019
+          {newsDate}
         </Text>
       </div>
 
       <div className={styles["newsItem__img"]}>
-        <SkeletonBox />
+        {newsImage === "" ? (
+          <SkeletonBox />
+        ) : (
+          <Image src={newsImage} alt={imageAlt} />
+        )}
       </div>
     </div>
   );

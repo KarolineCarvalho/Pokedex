@@ -37,6 +37,8 @@
   &__pokemonType {
     display: flex;
     text-transform: capitalize;
+    width: 22%;
+    justify-content: space-between;
   }
 
   &--justifyToEnd {
