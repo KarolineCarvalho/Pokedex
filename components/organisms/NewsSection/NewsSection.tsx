@@ -8,54 +8,47 @@ import styles from "./NewsSection.module.scss";
 const MOCK_NEWS = [
   {
     id: 1,
-    newsImage:
-      "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-rumble-rush/pokemon-rumble-rush-169.jpg",
+    newsImage: "/images/news/pokemon-rumble.jpg",
     imageAlt: "newsImagesImage",
     newsTitle: "Pokémon Rumble Rush Arrives Soon",
     newsDate: "15 May 2019",
   },
   {
     id: 2,
-    newsImage:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRukoSdWqy--DeoU5UvlSlbSsS9A0dt2f5RiQ&usqp=CAU",
+    newsImage: "/images/news/detective-pikachu.jfif",
     imageAlt: "newsImage",
     newsTitle: "Detective Pikachu Sleuths into Pokémon GO",
     newsDate: "19 Sep 2020",
   },
   {
     id: 3,
-    newsImage:
-      "https://www.pokemon.com/static-assets/content-assets/cms2/img/watch-pokemon-tv/_tiles/season08/season08-on-ptv-announce-169-en.png",
+    newsImage: "/images/news/advanced-battle.png",
     imageAlt: "newsImage",
     newsTitle: "Fight Advanced Battles on Pokémon TV",
     newsDate: "13 Feb 2021",
   },
   {
     id: 4,
-    newsImage:
-      "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-masters/08012022/pokemon-masters-ex-169.jpg",
+    newsImage: "/images/news/masters-ex.jpg",
     imageAlt: "newsImage",
     newsTitle: "Sygna Suit Brendan & Latios in Pokémon Masters EX",
     newsDate: "03 Mar 2021",
   },
   {
     id: 5,
-    newsImage:
-      "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/pokemon-presents/08032022/pokemon-presents-169-us.jpg",
+    newsImage: "/images/news/pokemon-presents.jpg",
     imageAlt: "newsImage",
     newsTitle: "An August 2022 Pokémon Presents Is Coming",
     newsDate: "15 Aug 2022",
   },
   {
     id: 6,
-    newsImage:
-      "https://www.pokemon.com/static-assets/content-assets/cms2/img/video-games/_tiles/strategy/go/palkia/pokemon-go-169.jpg",
+    newsImage: "/images/news/pokemon-go.jpg",
     imageAlt: "newsImage",
     newsTitle: "Palkia Pokémon GO Raid Battle Tips",
     newsDate: "15 May 2022",
   },
 ];
-console.log(MOCK_NEWS);
 
 const NewsSection = (): JSX.Element => {
   return (

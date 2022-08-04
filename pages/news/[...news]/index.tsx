@@ -7,6 +7,7 @@ import Text from "@atoms/Text";
 import styles from "styles/News.module.scss";
 import BackArrow from "@molecules/BackArrow";
 import SkeletonBox from "@atoms/SkeletonBox";
+import Image from "@molecules/Image";
 
 const NewsSection: NextPage = () => {
   const router = useRouter();
@@ -35,7 +36,7 @@ const NewsSection: NextPage = () => {
         </Text>
       </div>
       <div className={styles.news__img}>
-        <SkeletonBox />
+        <Image src="/images/news/newsContentImg.png" />
       </div>
       <div className={styles.news__content}>
         <Text size="large" weight="normal" color="grey">

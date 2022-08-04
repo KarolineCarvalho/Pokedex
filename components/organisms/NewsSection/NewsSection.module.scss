@@ -15,11 +15,16 @@
     grid: auto-flow 140px / repeat(2, 50%);
     gap: 30px;
 
-    @media (max-width: 938px) {
+    @media (min-width: 601px) and (max-width: 938px) {
       grid: auto-flow 170px / 100%;
       gap: 30px;
       width: 100%;
       max-width: 570px;
+    }
+
+    @media (max-width: 600px) {
+      grid: auto-flow 250px / 100%;
+      gap: 30px;
     }
   }
 }
