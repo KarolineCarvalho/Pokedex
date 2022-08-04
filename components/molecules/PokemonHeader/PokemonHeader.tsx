@@ -1,4 +1,4 @@
-import BackArrow from "@atoms/BackArrow";
+import BackArrow from "@molecules/BackArrow";
 import Heading from "@atoms/Heading";
 import HeartIcon from "@atoms/HeartIcon";
 import Text from "@atoms/Text";
@@ -41,7 +41,7 @@ const PokemonHeader = ({
   return (
     <div className={styles.pokemonHeader}>
       <div className={styles.actionsContainer}>
-        <BackArrow />
+        <BackArrow href="/pokedex" />
         <div
           className={styles["actionsContainer__heart"]}
           onClick={() => {

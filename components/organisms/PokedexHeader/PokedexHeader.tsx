@@ -1,11 +1,11 @@
-import BackArrow from "@atoms/BackArrow";
+import BackArrow from "@molecules/BackArrow";
 import ListIcon from "@atoms/ListIcon";
 import styles from "./PokedexHeader.module.scss";
 
 const PokedexHeader = (): JSX.Element => {
   return (
     <header className={styles.header}>
-      <BackArrow />
+      <BackArrow href="/" />
       <div className={styles["header__listIcon"]}>
         <ListIcon />
       </div>
