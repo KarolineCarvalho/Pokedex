@@ -7,8 +7,10 @@ import { useRouter } from "next/router";
 import { filterPokemon } from "./utils/filterPokemon";
 import usePokemon from "hooks/usePokemon";
 import Pokemon from "@models/Pokemon";
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import SkeletonBox from "@atoms/SkeletonBox";
+import Image from "@molecules/Image";
+import Text from "@atoms/Text";
 
 type Card = Pick<Pokemon, "id" | "name" | "types" | "sprite" | "abilities">;
 
@@ -17,6 +19,8 @@ const PokedexMain = (): JSX.Element => {
   const { search } = router.query;
 
   const { pokemon, isLoading } = usePokemon({ page: 0 });
+
+  const [count, setCount] = useState(1);
 
   const pokemonCompatible = pokemon?.map((pk) => {
     let types = [
@@ -50,6 +54,14 @@ const PokedexMain = (): JSX.Element => {
     [pokemonCompatible, search]
   );
 
+  useEffect(() => {
+    if (search !== undefined) setCount(1);
+  }, [search]);
+
+  const handleLoadMore = () => {
+    setCount((count) => count + 1);
+  };
+
   return (
     <main>
       <section aria-label="pokemon list" className={styles["pokedexSection"]}>
@@ -62,7 +74,7 @@ const PokedexMain = (): JSX.Element => {
         )}
         <Grid type="pokedex">
           {pokemonFiltered &&
-            pokemonFiltered.slice(0, 25).map((singlePokemon) => (
+            pokemonFiltered.slice(0, count * 24).map((singlePokemon) => (
               <Link
                 href={`/pokemon/${singlePokemon.id}`}
                 key={singlePokemon.id}
@@ -73,6 +85,20 @@ const PokedexMain = (): JSX.Element => {
               </Link>
             ))}
         </Grid>
+        {pokemonFiltered && (
+          <button
+            type="button"
+            onClick={handleLoadMore}
+            className={styles.pokedexSection__loadButton}
+          >
+            <Text color="black" size="medium" weight="bold">
+              Load More
+            </Text>
+            <div className={styles.pokedexSection__loadImage}>
+              <Image src="/images/plusle.png" alt="Plusle" />
+            </div>
+          </button>
+        )}
       </section>
     </main>
   );

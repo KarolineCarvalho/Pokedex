@@ -2,4 +2,19 @@
   display: flex;
   gap: 2.5rem;
   flex-direction: column;
+  &__loadButton {
+    padding: 1rem;
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    background-color: white;
+    &:hover {
+      box-shadow: crimson 3px;
+    }
+  }
+  &__loadImage {
+    width: 80px;
+  }
 }
