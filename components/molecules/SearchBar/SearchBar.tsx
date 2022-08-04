@@ -28,7 +28,7 @@ const SearchBar = ({ onSearch }: Props): JSX.Element => {
       <Input
         type="search"
         name="search"
-        placeholder="Search Pokemon, Move, Ability etc"
+        placeholder="Search Pokemon, Type, Ability etc"
       />
     </form>
   );
