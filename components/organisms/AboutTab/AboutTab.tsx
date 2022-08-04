@@ -37,7 +37,11 @@ const AboutTab = ({ currentPokemon }: Props) => {
       )}
       <BreedingInfo
         eggGroups={pokemonSpecies?.egg_groups || [{ name: "loading" }]}
-        gender_ratio={pokemonSpecies?.gender_rate || -1}
+        gender_ratio={
+          pokemonSpecies?.gender_rate !== undefined
+            ? pokemonSpecies?.gender_rate
+            : -1
+        }
       />
       <TrainingInfo baseXP={pokemonData?.base_experience || "loading"} />
     </section>

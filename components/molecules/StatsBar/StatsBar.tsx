@@ -14,12 +14,15 @@ const StatsBar = ({ statsValue, base }: Props): JSX.Element => {
   barFill = Math.round((statsValue / base) * 100);
 
   const fillCondition =
-    barFill > 50
+    barFill > 30
       ? classes.getElement("fill--green")
       : classes.getElement("fill--red");
   return (
     <div className={classes.getClasses()}>
-      <div className={fillCondition} style={{ width: `${barFill}%` }}></div>
+      <div
+        className={classes.getElement("fill") + " " + fillCondition}
+        style={{ width: `${barFill}%` }}
+      ></div>
     </div>
   );
 };

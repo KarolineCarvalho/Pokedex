@@ -4,7 +4,7 @@
   height: 100%;
   top: 0;
   z-index: -2;
-
+  transition: background-color ease 0.1s;
   .pokeballContainer {
     overflow: hidden;
     margin: auto;

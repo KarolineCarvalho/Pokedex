@@ -26,28 +26,28 @@ const BreedingInfo = ({ eggGroups, gender_ratio }: Props) => {
         <Text weight="normal" color="black" size="medium">
           {ratio === "unknown" ? (
             <>
-              <div className={styles["breedingInfo__icon"]}>
+              <span className={styles["breedingInfo__icon"]}>
                 <GenderIcon gender="unknown" color="black" />
-              </div>
+              </span>
               {"   "}unknown
             </>
           ) : (
-            <div className={styles["breedingInfo__genders"]}>
-              <div>
-                <div className={styles["breedingInfo__icon"]}>
+            <span className={styles["breedingInfo__genders"]}>
+              <span>
+                <span className={styles["breedingInfo__icon"]}>
                   <GenderIcon gender="male" color="#6C79DB" />
-                </div>
+                </span>
                 {"   "}
                 {ratio.male}%
-              </div>
-              <div>
-                <div className={styles["breedingInfo__icon"]}>
+              </span>
+              <span>
+                <span className={styles["breedingInfo__icon"]}>
                   <GenderIcon gender="female" color="#F0729F" />
-                </div>
+                </span>
                 {"   "}
                 {ratio.female}%
-              </div>
-            </div>
+              </span>
+            </span>
           )}
         </Text>
         <Text weight="normal" color="grey" size="medium">

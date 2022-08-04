@@ -30,22 +30,10 @@ const getPage = (queryResult: string | string[] | undefined): PageType => {
 const PokemonPage: NextPage = () => {
   const router = useRouter();
   const { slug } = router.query;
-  const { pokeId, type } = getName(slug);
+  const { pokeId } = getName(slug);
   const page = getPage(slug);
 
-  const { pokemon, isLoading, isError } = useSinglePokemon(`pokemon/${pokeId}`);
-
-  const {
-    pokemon: pokemonSpecies,
-    isLoading: loadingSpecies,
-    isError: errorSpecies,
-  } = useSinglePokemon(`pokemon-species/${pokeId}`);
-  if (!pokeId) return <div>Loading...</div>;
-  if (!pokemon || !pokemonSpecies) return <div>Loading...</div>;
-  const pokeTypes = pokemon.types.map((type: any) => {
-    return type.type.name;
-  });
-  const pokeImg = pokemon.sprites.other["official-artwork"]["front_default"];
+  const { pokemon } = useSinglePokemon(`pokemon/${pokeId}`, !!pokeId);
 
   return (
     <div className={styles.pokemonPage}>
@@ -56,14 +44,7 @@ const PokemonPage: NextPage = () => {
             : "Loading"}
         </title>
       </Head>
-      <PokemonView
-        pokemonName={pokemon.name}
-        pokemonId={pokemon.id}
-        pokemonTypes={pokeTypes}
-        pokemonImg={pokeImg}
-        pokemonSpecies={pokemonSpecies}
-      />
-
+      <PokemonView pokeId={pokeId} page={page} />
       <PokemonDetails current={page} pokemonID={pokeId} />
     </div>
   );

@@ -3,25 +3,28 @@ import PokemonBackground from "@molecules/PokemonBackground";
 import PokemonHeader from "@molecules/PokemonHeader";
 import ShadowPokemon from "@molecules/ShadowPokemon";
 import createClasses from "@utils/createClasses";
-import PokemonType from "models/PokemonTypes";
+import useSinglePokemon from "hooks/useSinglePokemon";
 import styles from "./PokemonView.module.scss";
 
 type Props = {
-  pokemonName: string;
-  pokemonTypes: PokemonType[];
-  pokemonId: number;
-  pokemonSpecies: any;
-  pokemonImg: string;
+  pokeId: number | string | undefined;
+  page: "about" | "moves" | "evolution" | "basestats";
 };
 
-const PokemonView = ({
-  pokemonName,
-  pokemonTypes,
-  pokemonId,
-  pokemonSpecies,
-  pokemonImg,
-}: Props) => {
-  const extractSpecie = pokemonSpecies.genera.filter(
+const PokemonView = ({ pokeId, page }: Props) => {
+  const { pokemon } = useSinglePokemon(`pokemon/${pokeId}`, !!pokeId);
+
+  const { pokemon: pokemonSpecies } = useSinglePokemon(
+    `pokemon-species/${pokeId}`,
+    !!pokeId
+  );
+
+  const pokeTypes = pokemon?.types.map((type: any) => {
+    return type.type.name;
+  }) || ["normal"];
+  const pokeImg = pokemon?.sprites.other["official-artwork"]["front_default"];
+
+  const extractSpecie = pokemonSpecies?.genera.filter(
     (genus: any) => genus.language.name === "en"
   )[0].genus;
 
@@ -33,20 +36,26 @@ const PokemonView = ({
   return (
     <div className={styles.pokemonView}>
       <PokemonHeader
-        pokemonName={pokemonName}
-        pokemonId={pokemonId}
-        pokemonType={pokemonTypes}
+        pokemonName={pokemon?.name || "missigno"}
+        pokemonId={pokemon?.id || "???"}
+        pokemonType={pokeTypes}
         pokemonSpecie={extractSpecie}
       />
-      <PokemonBackground pokemonType={pokemonTypes} />
+      <PokemonBackground pokemonType={pokeTypes} />
       <div className={styles.pokemonImg}>
-        <Image src={pokemonImg} alt={pokemonName} bottom />
+        <Image
+          src={pokeImg || "/images/missingno.webp"}
+          alt={pokemon?.name || "?"}
+          bottom
+          blurLoading
+          blur={!pokeImg}
+        />
       </div>
       <div className={shadowPreviousClasses.getClasses()}>
-        <ShadowPokemon pokemonId={pokemonId - 1} />
+        <ShadowPokemon pokemonId={pokemon?.id - 1} page={page} />
       </div>
       <div className={shadowNextClasses.getClasses()}>
-        <ShadowPokemon pokemonId={pokemonId + 1} />
+        <ShadowPokemon pokemonId={pokemon?.id + 1} page={page} />
       </div>
     </div>
   );
