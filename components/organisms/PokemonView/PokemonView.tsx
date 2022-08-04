@@ -8,9 +8,10 @@ import styles from "./PokemonView.module.scss";
 
 type Props = {
   pokeId: number | string | undefined;
+  page: "about" | "moves" | "evolution" | "basestats";
 };
 
-const PokemonView = ({ pokeId }: Props) => {
+const PokemonView = ({ pokeId, page }: Props) => {
   const { pokemon } = useSinglePokemon(`pokemon/${pokeId}`, !!pokeId);
 
   const { pokemon: pokemonSpecies } = useSinglePokemon(
@@ -51,10 +52,10 @@ const PokemonView = ({ pokeId }: Props) => {
         />
       </div>
       <div className={shadowPreviousClasses.getClasses()}>
-        <ShadowPokemon pokemonId={pokemon?.id - 1} />
+        <ShadowPokemon pokemonId={pokemon?.id - 1} page={page} />
       </div>
       <div className={shadowNextClasses.getClasses()}>
-        <ShadowPokemon pokemonId={pokemon?.id + 1} />
+        <ShadowPokemon pokemonId={pokemon?.id + 1} page={page} />
       </div>
     </div>
   );

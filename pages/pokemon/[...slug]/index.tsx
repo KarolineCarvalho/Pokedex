@@ -33,7 +33,7 @@ const PokemonPage: NextPage = () => {
   const { pokeId } = getName(slug);
   const page = getPage(slug);
 
-  const { pokemon } = useSinglePokemon(`pokemon/${pokeId}`);
+  const { pokemon } = useSinglePokemon(`pokemon/${pokeId}`, !!pokeId);
 
   return (
     <div className={styles.pokemonPage}>
@@ -44,7 +44,7 @@ const PokemonPage: NextPage = () => {
             : "Loading"}
         </title>
       </Head>
-      <PokemonView pokeId={pokeId} />
+      <PokemonView pokeId={pokeId} page={page} />
       <PokemonDetails current={page} pokemonID={pokeId} />
     </div>
   );

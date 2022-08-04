@@ -20,7 +20,6 @@ type Props = {
 };
 
 const getMethodDisplay = (evolutionDetail: EvolutionDetail): string => {
-  console.log(evolutionDetail);
   const typesName = ["level-up", "use-item"];
   const evolutionTypes = {
     "level-up": (evolutionDetail: EvolutionDetail) =>

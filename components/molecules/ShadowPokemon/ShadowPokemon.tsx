@@ -5,15 +5,16 @@ import React from "react";
 
 type Props = {
   pokemonId: number;
+  page: "about" | "moves" | "evolution" | "basestats";
 };
 
-const ShadowPokemon = ({ pokemonId }: Props): JSX.Element => {
+const ShadowPokemon = ({ pokemonId, page }: Props): JSX.Element => {
   const { pokemon } = useSinglePokemon(`pokemon/${pokemonId}`);
 
   return (
     <>
       {pokemon && (
-        <Link href={`/pokemon/${pokemonId}`}>
+        <Link href={`/pokemon/${pokemonId}/${page}`}>
           <a>
             <Image
               src={pokemon.sprites.other["official-artwork"]["front_default"]}
