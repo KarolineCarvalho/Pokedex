@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import Heading from "@atoms/Heading";
 import Text from "@atoms/Text";
-import SkeletonBox from "@atoms/SkeletonBox";
 
 import styles from "styles/News.module.scss";
-import BackArrow from "@atoms/BackArrow";
+import BackArrow from "@molecules/BackArrow";
+import SkeletonBox from "@atoms/SkeletonBox";
 
 const NewsSection: NextPage = () => {
   const router = useRouter();
@@ -17,7 +17,7 @@ const NewsSection: NextPage = () => {
         <title>News - blabla</title>
       </Head>
 
-      <BackArrow />
+      <BackArrow href="/" />
 
       <div className={styles.news__img}>
         <SkeletonBox />
