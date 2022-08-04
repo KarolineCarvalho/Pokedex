@@ -17,7 +17,6 @@ const NewsItem = ({
   newsImage,
   imageAlt,
 }: Props): JSX.Element => {
-  console.log(newsImage);
   return (
     <div className={styles.newsItem}>
       <div className={styles["newsItem__title"]}>

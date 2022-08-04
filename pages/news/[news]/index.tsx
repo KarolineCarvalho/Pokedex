@@ -8,25 +8,34 @@ import styles from "styles/News.module.scss";
 import BackArrow from "@molecules/BackArrow";
 import SkeletonBox from "@atoms/SkeletonBox";
 import Image from "@molecules/Image";
+import { MOCK_NEWS } from "@organisms/NewsSection/NewsSection";
 
 const NewsSection: NextPage = () => {
   const router = useRouter();
   const { news } = router.query;
+  const id = parseInt(news + "") - 1;
+
+  const newsData = {
+    img: MOCK_NEWS[id].newsImage,
+    title: MOCK_NEWS[id].newsTitle,
+    date: MOCK_NEWS[id].newsDate,
+  };
+
   return (
     <div className={styles.news}>
       <Head>
-        <title>News - blabla</title>
+        <title>News - {newsData.title}</title>
       </Head>
 
       <BackArrow href="/" />
 
       <div className={styles.news__img}>
-        <SkeletonBox />
+        <Image src={newsData.img} alt="newsContent" />
       </div>
 
-      <Heading>Pokemon Rumble Rush Arrives Soon</Heading>
+      <Heading>{newsData.title}</Heading>
       <Text size="large" weight="normal" color="grey">
-        15 May 2019
+        {newsData.date}
       </Text>
       <div className={styles.news__content}>
         <Text size="large" weight="normal" color="grey">
