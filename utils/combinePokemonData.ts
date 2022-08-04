@@ -14,10 +14,32 @@ export const combinePokemonData = (
 ): Pokemon[] | undefined => {
   if (pokemonBasicInfo?.results && pokemonData)
     return pokemonData.map((pokemon, i: number) => ({
-      ...pokemonBasicInfo.results[i],
-      ...pokemon,
-      sprite: pokemon.sprites.front_default,
+      name: pokemonBasicInfo.results[i].name,
+      id: pokemon.id,
+      abilities: pokemon.abilities,
+      sprites: {
+        front_default:
+          pokemon?.sprites?.front_default || "/images/missingno.webp",
+      },
+      sprite: pokemon?.sprites?.front_default || "/images/missingno.webp",
       types: extractTypes(pokemon),
+      moves: pokemon.moves.map((move) => ({ move: { name: move.move.name } })),
+      url: pokemonBasicInfo.results[i].url,
     }));
   return undefined;
 };
+
+// if (pokemonBasicInfo?.results && pokemonData)
+// return pokemonData.map((pokemon, i: number) => ({
+//   name: pokemonBasicInfo.results[i].name,
+//   id: pokemon.id,
+//   abilities: pokemon.abilities,
+//   sprites: {
+//     front_default:
+//       pokemon?.sprites?.front_default || "/images/missingno.webp",
+//   },
+//   sprite: pokemon?.sprites?.front_default || "/images/missingno.webp",
+//   types: extractTypes(pokemon),
+//   moves: pokemon.moves.map((move) => ({ move: { name: move.move.name } })),
+//   url: pokemonBasicInfo.results[i].url,
+// }));

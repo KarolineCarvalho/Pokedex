@@ -8,11 +8,13 @@ export const filterPokemon = (
   if (!search) return pokemon;
   let searchString = (Array.isArray(search) ? search.join(" ") : search).trim();
   return pokemon.filter((pk) =>
-    JSON.stringify([
+    [
       pk.name,
       pk.types,
       pk.abilities.map((ab) => ab.ability.name),
       pk.moves.map((mv) => mv.move.name),
-    ]).includes(searchString)
+    ]
+      .join(" ")
+      .includes(searchString)
   );
 };

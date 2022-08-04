@@ -4,6 +4,7 @@ import Image from "@molecules/Image";
 import TypeBox from "@molecules/TypeBox";
 import createClasses from "@utils/createClasses";
 import Pokemon from "models/Pokemon";
+import React from "react";
 import styles from "./PokeCard.module.scss";
 
 type Props = {
@@ -44,4 +45,4 @@ const PokeCard = ({ pokemon }: Props) => {
   );
 };
 
-export default PokeCard;
+export default React.memo(PokeCard);

@@ -1,18 +1,22 @@
 import Heading from "@atoms/Heading";
 import Grid from "@molecules/Grid";
 import PokeCard from "@molecules/PokeCard";
-import usePokemon from "hooks/usePokemon";
 import Link from "next/link";
 import styles from "./PokedexMain.module.scss";
 import { useRouter } from "next/router";
 import { useMemo } from "react";
 import { filterPokemon } from "./utils/filterPokemon";
-import SkeletonBox from "@atoms/SkeletonBox";
+import usePokemon from "hooks/usePokemon";
 
-const PokedexMain = () => {
+type Props = {
+  allPokemon: any[];
+};
+
+const PokedexMain = ({ allPokemon }: Props): JSX.Element => {
   const router = useRouter();
   const { search } = router.query;
-  const { pokemon, isLoading, isError } = usePokemon();
+
+  const { pokemon } = usePokemon(allPokemon);
 
   const pokemonFiltered = useMemo(
     () => filterPokemon(search, pokemon),
@@ -23,17 +27,9 @@ const PokedexMain = () => {
     <main>
       <section aria-label="pokemon list" className={styles["pokedexSection"]}>
         <Heading>Pokedex</Heading>
-        {isLoading && (
-          <Grid type="pokedex">
-            {isLoading &&
-              new Array(6).fill("").map((_, i) => <SkeletonBox key={i} />)}
-          </Grid>
-        )}
         <Grid type="pokedex">
-          {!isLoading &&
-            !isError &&
-            pokemonFiltered &&
-            pokemonFiltered.map((singlePokemon) => (
+          {pokemonFiltered &&
+            pokemonFiltered.slice(0, 25).map((singlePokemon) => (
               <Link
                 href={`/pokemon/${singlePokemon.id}`}
                 key={singlePokemon.id}
