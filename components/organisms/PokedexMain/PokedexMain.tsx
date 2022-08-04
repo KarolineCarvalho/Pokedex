@@ -7,27 +7,17 @@ import { useRouter } from "next/router";
 import { filterPokemon } from "./utils/filterPokemon";
 import usePokemon from "hooks/usePokemon";
 import Pokemon from "@models/Pokemon";
-import { graphQLPKList } from "@models/PokemonFetchTypes";
+import { useMemo } from "react";
 
-type Props = {
-  allPokemon: any[];
-};
+type Card = Pick<Pokemon, "id" | "name" | "types" | "sprite" | "abilities">;
 
-type Card = Pick<Pokemon, "id" | "name" | "types" | "sprite">;
-
-const PokedexMain = ({ allPokemon }: Props): JSX.Element => {
+const PokedexMain = (): JSX.Element => {
   const router = useRouter();
   const { search } = router.query;
 
-  const { pokemon } = usePokemon();
-  /*
-  const pokemonFiltered = useMemo(
-    () => filterPokemon(search, pokemon),
-    [pokemon, search]
-  );
-  */
-  console.log("pokemon", pokemon);
-  const pokemonFiltered = pokemon?.map((pk) => {
+  const { pokemon } = usePokemon({ page: 0 });
+
+  const pokemonCompatible = pokemon?.map((pk) => {
     let types = [
       pk.pokemon_v2_pokemontypes[0].pokemon_v2_type.pokemon_v2_typenames[0]
         .name,
@@ -45,11 +35,19 @@ const PokedexMain = ({ allPokemon }: Props): JSX.Element => {
       name: pk.name,
       sprite: pk.pokemon_v2_pokemonsprites[0].sprites.front_default,
       types: types,
+      abilities: pk.pokemon_v2_pokemonabilities.map((ability) => ({
+        ability: {
+          name: ability.pokemon_v2_ability.pokemon_v2_abilitynames[0].name,
+        },
+      })),
     };
     return newpk;
   });
 
-  console.log("pokemonFiltered", pokemonFiltered);
+  const pokemonFiltered = useMemo(
+    () => filterPokemon(search, pokemonCompatible),
+    [pokemonCompatible, search]
+  );
 
   return (
     <main>
