@@ -4,9 +4,11 @@
   width: 90vw;
   max-width: 800px;
   min-width: 360px;
+
   &__img {
     height: 250px;
     width: 100%;
+    padding: 0.3rem;
     margin: 5vh auto 3vh auto;
   }
   &__content {

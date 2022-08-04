@@ -1,14 +1,19 @@
 .news {
-  margin-bottom: 5vh;
+  margin: 15vh 0 5vh 0;
+  background-color: #f5f5f5;
+
   &__header {
     display: flex;
+    padding: 0 3vh;
+
     justify-content: space-between;
     align-items: center;
-    height: 6vh;
+    height: 15vh;
     margin: 1.5vh 0;
   }
   &__container {
     display: grid;
+    margin: 15px 0 5vh 0;
     max-width: 900px;
     width: 95%;
     margin: 0 auto;
