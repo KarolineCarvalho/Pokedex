@@ -9,13 +9,11 @@ type Props = {
 
 const Grid = ({ children, type }: Props): JSX.Element => {
   const listState = useToggleList((state) => state.listView);
+  const listModifier = listState ? "" : "--singleColumn";
 
   console.log(listState);
   const classes = createClasses("grid", styles);
-
-  listState
-    ? classes.addClass(`${type}`)
-    : classes.addClass(`${type}--singleColumn`);
+  classes.addClass(`${type === "pokedex" ? type + listModifier : type}`);
   return (
     <ul className={classes.getClasses()}>
       {Array.isArray(children) ? (

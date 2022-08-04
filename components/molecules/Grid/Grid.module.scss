@@ -18,9 +18,15 @@
     grid: auto-flow 110px / repeat(2, max(155px, 30%));
 
     &--singleColumn {
-      width: min(85%, 900px);
+      width: min(85%, 400px);
+      min-width: 220px;
       grid: auto-flow 95px / 100%;
       margin: 0 auto;
+
+      @media screen and (min-width: 551px) {
+        width: min(85%, 600px);
+        grid: auto-flow 95px / repeat(2, 50%);
+      }
     }
 
     @media screen and (min-width: 551px) {
