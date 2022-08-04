@@ -7,6 +7,8 @@ type EvolutionDetail = {
   min_happiness: number;
   item: { name: string };
   trigger: { name: string };
+  held_item: { name: string };
+  time_of_day: string;
 };
 
 type Chain = {
@@ -20,19 +22,22 @@ type Props = {
 };
 
 const getMethodDisplay = (evolutionDetail: EvolutionDetail): string => {
-  const typesName = ["level-up", "use-item"];
-  const evolutionTypes = {
-    "level-up": (evolutionDetail: EvolutionDetail) =>
-      evolutionDetail.min_level
-        ? "Lv." + evolutionDetail.min_level
-        : "Happiness: " + evolutionDetail.min_happiness,
-    "use-item": (evolutionDetail: EvolutionDetail) => evolutionDetail.item.name,
-  };
-  const type = evolutionDetail.trigger.name;
-  const display = typesName.includes(type)
-    ? evolutionTypes[type as "level-up" | "use-item"](evolutionDetail)
-    : evolutionDetail.trigger.name;
-  return display;
+  const textDisplay = [];
+
+  if (evolutionDetail.min_level)
+    textDisplay.push("Lv. " + evolutionDetail.min_level);
+  if (evolutionDetail.min_happiness)
+    textDisplay.push("Hap. " + evolutionDetail.min_happiness);
+  if (evolutionDetail.item)
+    textDisplay.push("Use " + evolutionDetail.item.name);
+  if (evolutionDetail.held_item)
+    textDisplay.push("Hold " + evolutionDetail.held_item.name);
+  if (evolutionDetail.time_of_day)
+    textDisplay.push("On " + evolutionDetail.time_of_day);
+  if (evolutionDetail.trigger.name === "trade") textDisplay.push("Trade");
+  if (evolutionDetail.trigger.name === "three-critical-hits")
+    textDisplay.push("Hit three critical hits");
+  return textDisplay.join(", ");
 };
 
 const EvolutionChain = ({ chain }: Props): JSX.Element => {
@@ -49,13 +54,8 @@ const EvolutionChain = ({ chain }: Props): JSX.Element => {
               <Text color="grey" size="large" weight="bold">
                 →
               </Text>
-              {evolution.evolution_details.map((evolution_details) => (
-                <Text
-                  key={evolution_details.trigger.name}
-                  color="black"
-                  size="medium"
-                  weight="bold"
-                >
+              {evolution.evolution_details.map((evolution_details, i) => (
+                <Text key={i} color="black" size="medium" weight="bold">
                   {getMethodDisplay(evolution_details)}
                 </Text>
               ))}
