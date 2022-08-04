@@ -8,6 +8,7 @@ import { filterPokemon } from "./utils/filterPokemon";
 import usePokemon from "hooks/usePokemon";
 import Pokemon from "@models/Pokemon";
 import { useMemo } from "react";
+import SkeletonBox from "@atoms/SkeletonBox";
 
 type Card = Pick<Pokemon, "id" | "name" | "types" | "sprite" | "abilities">;
 
@@ -15,7 +16,7 @@ const PokedexMain = (): JSX.Element => {
   const router = useRouter();
   const { search } = router.query;
 
-  const { pokemon } = usePokemon({ page: 0 });
+  const { pokemon, isLoading } = usePokemon({ page: 0 });
 
   const pokemonCompatible = pokemon?.map((pk) => {
     let types = [
@@ -53,6 +54,12 @@ const PokedexMain = (): JSX.Element => {
     <main>
       <section aria-label="pokemon list" className={styles["pokedexSection"]}>
         <Heading>Pokedex</Heading>
+        {isLoading && (
+          <Grid type="pokedex">
+            {isLoading &&
+              new Array(6).fill("").map((_, i) => <SkeletonBox key={i} />)}
+          </Grid>
+        )}
         <Grid type="pokedex">
           {pokemonFiltered &&
             pokemonFiltered.slice(0, 25).map((singlePokemon) => (
