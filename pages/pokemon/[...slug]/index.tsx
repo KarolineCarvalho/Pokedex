@@ -32,8 +32,6 @@ const PokemonPage: NextPage = () => {
   const pokeId = getName(slug);
   const page = getPage(slug);
 
-  console.log(pokeId);
-
   const { pokemon } = useSinglePokemon(`pokemon/${pokeId}`, !!pokeId);
 
   return (
