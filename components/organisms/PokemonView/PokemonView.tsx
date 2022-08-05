@@ -51,12 +51,16 @@ const PokemonView = ({ pokeId, page }: Props) => {
           blur={!pokeImg}
         />
       </div>
-      <div className={shadowPreviousClasses.getClasses()}>
-        <ShadowPokemon pokemonId={pokemon?.id - 1} page={page} />
-      </div>
-      <div className={shadowNextClasses.getClasses()}>
-        <ShadowPokemon pokemonId={pokemon?.id + 1} page={page} />
-      </div>
+      {pokemon?.id && (
+        <div className={shadowPreviousClasses.getClasses()}>
+          <ShadowPokemon pokemonId={pokemon.id - 1} page={page} />
+        </div>
+      )}
+      {pokemon?.id && (
+        <div className={shadowNextClasses.getClasses()}>
+          <ShadowPokemon pokemonId={pokemon?.id + 1} page={page} />
+        </div>
+      )}
     </div>
   );
 };

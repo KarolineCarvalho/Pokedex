@@ -1,4 +1,3 @@
-import PokemonBackground from "@molecules/PokemonBackground";
 import PokemonDetails from "@organisms/PokemonDetails";
 import PokemonView from "@organisms/PokemonView";
 import useSinglePokemon from "hooks/useSinglePokemon";
