@@ -1,7 +1,7 @@
 .aboutTab {
   display: flex;
   flex-direction: column;
-  width: 85%;
+  width: min(85%, 1024px);
   background-color: white;
   padding-top: 1.2rem;
   gap: 1.8rem;

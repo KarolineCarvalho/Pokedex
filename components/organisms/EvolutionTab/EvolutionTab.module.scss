@@ -1,7 +1,7 @@
 .evolutionTab {
   display: flex;
   align-items: flex-start;
-  width: 85%;
+  width: min(85%, 1024px);
   padding-top: 2rem;
   flex-direction: column;
   gap: 2rem;
