@@ -21,9 +21,22 @@ const PokedexMain = (): JSX.Element => {
 
   const [count, setCount] = useState(1);
 
+  const [favorites, setFavorites] = useState<string[]>([]);
+
+  useEffect(() => {
+    let favorites = [];
+    if (localStorage.getItem("favorites"))
+      favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    setFavorites(favorites);
+  }, []);
+
   const pokemonFiltered = useMemo(
-    () => filterPokemon(search, pokemon),
-    [pokemon, search]
+    () =>
+      filterPokemon(
+        search,
+        pokemon?.filter((pk) => favorites.includes(pk.name))
+      ),
+    [pokemon, search, favorites]
   );
 
   useEffect(() => {
