@@ -47,7 +47,7 @@ const PokeCard = ({ pokemon }: Props) => {
             ))}
           </div>
           <div className={cardClasses.getElement("sprite")}>
-            <Image src={sprite} alt={name} />
+            <Image src={sprite || "/images/question-mark.png"} alt={name} />
           </div>
           <div className={cardClasses.getElement("background")}>
             <PokeballIcon />
