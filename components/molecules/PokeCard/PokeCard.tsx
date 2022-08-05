@@ -71,11 +71,11 @@ const PokeCard = ({ pokemon }: Props) => {
             ))}
           </div>
 
-          {/* <div
+          <div
             className={cardClasses.getElement(`background${listVwModifier}`)}
           >
             <PokeballIcon />
-          </div> */}
+          </div>
         </div>
       )}
     </>
