@@ -1,0 +1,20 @@
+.news {
+  margin: 10vh auto 0 auto;
+  height: 100%;
+  width: 90vw;
+  max-width: 800px;
+  min-width: 360px;
+
+  &__img {
+    height: 53vh;
+    width: fit-content;
+    margin: 5vh auto 3vh auto;
+    border-radius: 45px;
+    overflow: hidden;
+  }
+  &__content {
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 2vh auto 3vh auto;
+  }
+}
