@@ -23,18 +23,26 @@ const PokemonHeader = ({
   const [favorite, setFavorite] = useState<boolean>(false);
 
   useEffect(() => {
-    setFavorite(!!localStorage.getItem(pokemonName));
+    let favorites = [];
+    if (localStorage.getItem("favorites"))
+      favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    setFavorite(favorites.includes(pokemonName));
   }, [pokemonName]);
 
   const toggleFavorite = (item: string) => {
-    const isLiked = localStorage.getItem(item);
-    if (isLiked === null) {
-      localStorage.setItem(item, "true");
+    let favorites: string[] = [];
+    if (localStorage.getItem("favorites"))
+      favorites = JSON.parse(localStorage.getItem("favorites") || "[]");
+    const isLiked = favorites.includes(pokemonName);
+    if (!isLiked) {
+      favorites.push(pokemonName);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
       setFavorite(true);
     }
-    if (isLiked === "true") {
-      localStorage.removeItem(item);
-      setFavorite(false);
+    if (isLiked) {
+      favorites = favorites.filter((f) => f !== pokemonName);
+      localStorage.setItem("favorites", JSON.stringify(favorites));
+      setFavorite(true);
     }
   };
 
