@@ -9,7 +9,7 @@
 
 .actionsContainer {
   display: flex;
-  width: 85%;
+  width: min(85%, 1024px);
   justify-content: space-between;
   align-items: center;
   z-index: 1;
@@ -22,7 +22,7 @@
 
 .pokemonInfo {
   display: grid;
-  width: 85%;
+  width: min(85%, 1024px);
   min-width: 195px;
   margin-top: 30px;
   row-gap: 10px;

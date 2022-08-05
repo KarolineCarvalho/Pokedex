@@ -1,6 +1,6 @@
 .pokeNav {
   list-style-type: none;
-  width: 85%;
+  width: min(85%, 1024px);
   display: flex;
   flex-direction: row;
   justify-content: space-between;

@@ -2,7 +2,7 @@
   display: grid;
   gap: 0.5rem;
   flex-direction: column;
-  width: 85%;
+  width: min(85%, 1024px);
   padding-top: 2rem;
   text-transform: uppercase;
   grid-template-columns: min-content auto;

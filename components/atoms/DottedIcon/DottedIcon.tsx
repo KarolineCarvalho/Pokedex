@@ -12,31 +12,30 @@ const DottedIcon = ({ color, opacity }: Props): JSX.Element => {
 
   const fillCondition = color ? color : "white";
   return (
-    <div className={classes.getClasses()}>
-      <svg
-        width="57"
-        height="31"
-        viewBox="0 0 57 31"
-        fill={color ? color : "white"}
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="2.5" cy="2.5" r="2.5" fill={fillCondition} />
-        <circle cx="15.5" cy="2.5" r="2.5" fill={fillCondition} />
-        <circle cx="28.5" cy="2.5" r="2.5" fill={fillCondition} />
-        <circle cx="41.5" cy="2.5" r="2.5" fill={fillCondition} />
-        <circle cx="54.5" cy="2.5" r="2.5" fill={fillCondition} />
-        <circle cx="2.5" cy="15.5" r="2.5" fill={fillCondition} />
-        <circle cx="15.5" cy="15.5" r="2.5" fill={fillCondition} />
-        <circle cx="28.5" cy="15.5" r="2.5" fill={fillCondition} />
-        <circle cx="41.5" cy="15.5" r="2.5" fill={fillCondition} />
-        <circle cx="54.5" cy="15.5" r="2.5" fill={fillCondition} />
-        <circle cx="2.5" cy="28.5" r="2.5" fill={fillCondition} />
-        <circle cx="15.5" cy="28.5" r="2.5" fill={fillCondition} />
-        <circle cx="28.5" cy="28.5" r="2.5" fill={fillCondition} />
-        <circle cx="41.5" cy="28.5" r="2.5" fill={fillCondition} />
-        <circle cx="54.5" cy="28.5" r="2.5" fill={fillCondition} />
-      </svg>
-    </div>
+    <svg
+      className={classes.getClasses()}
+      width="100%"
+      height="100%"
+      viewBox="0 0 57 31"
+      fill={color ? color : "white"}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <circle cx="2.5" cy="2.5" r="2.5" fill={fillCondition} />
+      <circle cx="15.5" cy="2.5" r="2.5" fill={fillCondition} />
+      <circle cx="28.5" cy="2.5" r="2.5" fill={fillCondition} />
+      <circle cx="41.5" cy="2.5" r="2.5" fill={fillCondition} />
+      <circle cx="54.5" cy="2.5" r="2.5" fill={fillCondition} />
+      <circle cx="2.5" cy="15.5" r="2.5" fill={fillCondition} />
+      <circle cx="15.5" cy="15.5" r="2.5" fill={fillCondition} />
+      <circle cx="28.5" cy="15.5" r="2.5" fill={fillCondition} />
+      <circle cx="41.5" cy="15.5" r="2.5" fill={fillCondition} />
+      <circle cx="54.5" cy="15.5" r="2.5" fill={fillCondition} />
+      <circle cx="2.5" cy="28.5" r="2.5" fill={fillCondition} />
+      <circle cx="15.5" cy="28.5" r="2.5" fill={fillCondition} />
+      <circle cx="28.5" cy="28.5" r="2.5" fill={fillCondition} />
+      <circle cx="41.5" cy="28.5" r="2.5" fill={fillCondition} />
+      <circle cx="54.5" cy="28.5" r="2.5" fill={fillCondition} />
+    </svg>
   );
 };
 
