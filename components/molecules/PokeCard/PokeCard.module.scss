@@ -11,16 +11,33 @@
   isolation: isolate;
   &__id {
     justify-self: end;
+    &--singleColumn {
+      grid-area: id;
+      justify-self: start;
+    }
   }
   &__name {
     text-transform: capitalize;
     margin-bottom: 0.3rem;
+    &--singleColumn {
+      text-transform: capitalize;
+      grid-area: name;
+      justify-self: end;
+      align-self: center;
+    }
   }
   &__types {
     text-transform: capitalize;
     display: flex;
     flex-direction: column;
     gap: 0.3rem;
+
+    &--singleColumn {
+      grid-area: types;
+      text-transform: capitalize;
+      display: flex;
+      gap: 0.3rem;
+    }
   }
   &__sprite {
     position: absolute;
@@ -37,6 +54,19 @@
     width: 83px;
     height: 83px;
     z-index: -2;
+
+    &--singleColumn {
+      position: absolute;
+      right: 0;
+      width: 128px;
+    }
+  }
+  &--singleColumn {
+    padding: 15px 10%;
+    grid-template:
+      "id name " 35px
+      "types name " 25px
+      / 1fr 1fr;
   }
   &--type {
     &--normal {

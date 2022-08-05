@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import styles from "./NewsSection.module.scss";
 
-const MOCK_NEWS = [
+export const MOCK_NEWS = [
   {
     id: 1,
     newsImage: "/images/news/pokemon-rumble.jpg",

@@ -18,8 +18,8 @@ const Home: NextPage = () => {
         <MainLayout>
           <HomeSearchSection />
           <HomeNavigation />
-          <NewsSection />
         </MainLayout>
+        <NewsSection />
       </main>
     </div>
   );
