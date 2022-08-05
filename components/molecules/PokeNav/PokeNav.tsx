@@ -1,10 +1,11 @@
+import Page from "@models/Pages";
 import PokeNavItem from "@molecules/PokeNavItem";
 import Link from "next/link";
 import styles from "./PokeNav.module.scss";
 
 type Props = {
   tabs: {
-    url: "about" | "basestats" | "evolution" | "moves";
+    url: Page;
     display: string;
     current: boolean;
   }[];

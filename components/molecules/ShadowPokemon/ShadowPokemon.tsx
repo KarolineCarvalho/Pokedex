@@ -1,3 +1,4 @@
+import Page from "@models/Pages";
 import Image from "@molecules/Image";
 import useSinglePokemon from "hooks/useSinglePokemon";
 import Link from "next/link";
@@ -5,7 +6,7 @@ import React from "react";
 
 type Props = {
   pokemonId: number;
-  page: "about" | "moves" | "evolution" | "basestats";
+  page: Page;
 };
 
 const ShadowPokemon = ({ pokemonId, page }: Props): JSX.Element => {
