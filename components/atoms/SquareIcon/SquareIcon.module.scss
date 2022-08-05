@@ -1,9 +1,7 @@
 .SquareIcon {
   mix-blend-mode: soft-light;
   opacity: 0.5;
-  position: absolute;
-  top: -3rem;
-  left: -5rem;
+
   &--opacity--high {
     opacity: 0.05;
   }

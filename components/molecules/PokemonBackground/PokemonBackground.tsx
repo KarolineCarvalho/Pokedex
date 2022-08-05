@@ -22,9 +22,14 @@ const PokemonBackground = ({ pokemonType }: Props): JSX.Element => {
 
   return (
     <div className={classes.getClasses()}>
-      <SquareIcon />
-      <DottedIcon />
-      <div className={styles.pokeballContainer}>
+      <div className={classes.getElement("squareIcon")}>
+        <SquareIcon />
+      </div>
+      <div className={classes.getElement("dottedIcon")}>
+        <DottedIcon />
+      </div>
+
+      <div className={classes.getElement("pokeballContainer")}>
         <PokeballIcon />
       </div>
     </div>
