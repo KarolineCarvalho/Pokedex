@@ -6,13 +6,13 @@ import Text from "@atoms/Text";
 
 import styles from "styles/News.module.scss";
 import BackArrow from "@molecules/BackArrow";
-import SkeletonBox from "@atoms/SkeletonBox";
 import Image from "@molecules/Image";
 import { MOCK_NEWS } from "@organisms/NewsSection/NewsSection";
 
 const NewsSection: NextPage = () => {
   const router = useRouter();
   const { news } = router.query;
+  if (!news) return <div></div>;
   const id = parseInt(news + "") - 1;
 
   const newsData = {
