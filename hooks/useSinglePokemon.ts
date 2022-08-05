@@ -1,10 +1,14 @@
 import { fetcher } from "@utils/fetchers";
 import useSWR from "swr";
 
-const useSinglePokemon = (props: string, shouldFetch: boolean = true) => {
+const useSinglePokemon = (
+  props: string | number,
+  shouldFetch: boolean = true
+) => {
   const { data, error } = useSWR(
     shouldFetch ? `https://pokeapi.co/api/v2/${props}` : null,
-    fetcher
+    fetcher,
+    { errorRetryCount: 3 }
   );
 
   return {

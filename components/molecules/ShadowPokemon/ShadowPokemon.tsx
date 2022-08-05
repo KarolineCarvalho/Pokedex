@@ -9,7 +9,7 @@ type Props = {
 };
 
 const ShadowPokemon = ({ pokemonId, page }: Props): JSX.Element => {
-  const { pokemon } = useSinglePokemon(`pokemon/${pokemonId}`);
+  const { pokemon } = useSinglePokemon(`pokemon/${pokemonId}`, pokemonId !== 0);
 
   return (
     <>
@@ -17,7 +17,10 @@ const ShadowPokemon = ({ pokemonId, page }: Props): JSX.Element => {
         <Link href={`/pokemon/${pokemonId}/${page}`}>
           <a>
             <Image
-              src={pokemon.sprites.other["official-artwork"]["front_default"]}
+              src={
+                pokemon.sprites.other["official-artwork"]["front_default"] ||
+                "/images/question-mark.png"
+              }
               alt={pokemon.name}
               shadow
             />
