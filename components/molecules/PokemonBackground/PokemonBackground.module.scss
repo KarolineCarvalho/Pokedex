@@ -5,7 +5,23 @@
   top: 0;
   z-index: -2;
   transition: background-color ease 0.1s;
-  .pokeballContainer {
+  &__squareIcon {
+    position: absolute;
+    top: -7rem;
+    left: -2rem;
+    width: min(22%, 252px);
+    min-width: 120px;
+    height: 59%;
+  }
+  &__dottedIcon {
+    position: absolute;
+    width: min(8%, 100px);
+    min-width: 57px;
+    height: 18%;
+    top: -0.5rem;
+    right: 20%;
+  }
+  &__pokeballContainer {
     overflow: hidden;
     margin: auto;
     width: 57%;
