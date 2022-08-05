@@ -10,11 +10,11 @@ import { captilizeFirstLetter } from "@utils/stringUtils";
 
 const getName = (queryResult: string | string[] | undefined) => {
   let pokeId;
-  if (!queryResult) return { pokeId, type: "undefined" };
+  if (!queryResult) return pokeId;
   pokeId = Array.isArray(queryResult) ? queryResult[0] : queryResult;
   const isNumber = (id: string) => /\d+/.test(id);
-  if (isNumber(pokeId)) return { pokeId, type: "number" };
-  return { pokeId, type: "name" };
+  if (isNumber(pokeId)) return pokeId;
+  return pokeId.toLowerCase();
 };
 
 const pages = ["about", "moves", "evolution", "basestats"] as const;
@@ -29,7 +29,7 @@ const getPage = (queryResult: string | string[] | undefined): PageType => {
 const PokemonPage: NextPage = () => {
   const router = useRouter();
   const { slug } = router.query;
-  const { pokeId } = getName(slug);
+  const pokeId = getName(slug);
   const page = getPage(slug);
 
   const { pokemon } = useSinglePokemon(`pokemon/${pokeId}`, !!pokeId);

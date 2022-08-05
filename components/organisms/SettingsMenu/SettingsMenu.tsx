@@ -5,14 +5,19 @@ import SearchIcon from "@atoms/SearchIcon";
 import SearchTray from "@molecules/SearchTray";
 import SettingsButton from "@molecules/SettingsButton";
 import SettingsItem from "@molecules/SettingsItem";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import styles from "./SettingsMenu.module.scss";
 
 const SettingsMenu = () => {
   const [state, setState] = useState<"closed" | "open" | "tray">("closed");
-
+  const router = useRouter();
   const handleSearch = () => {
     setState("tray");
+  };
+
+  const goToFavorites = () => {
+    router.push("/pokedex/favorites");
   };
 
   const handleExit = () => setState("closed");
@@ -40,7 +45,7 @@ const SettingsMenu = () => {
           <SettingsItem
             text="Favorite Pokemon"
             icon={<HeartIcon color="#6C79DB" filled />}
-            onClick={handleSearch}
+            onClick={goToFavorites}
           />
           <SettingsItem
             text="All Type"
