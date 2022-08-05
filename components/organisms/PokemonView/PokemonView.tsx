@@ -1,3 +1,4 @@
+import Page from "@models/Pages";
 import Image from "@molecules/Image";
 import PokemonBackground from "@molecules/PokemonBackground";
 import PokemonHeader from "@molecules/PokemonHeader";
@@ -8,7 +9,7 @@ import styles from "./PokemonView.module.scss";
 
 type Props = {
   pokeId: number | string | undefined;
-  page: "about" | "moves" | "evolution" | "basestats";
+  page: Page;
 };
 
 const PokemonView = ({ pokeId, page }: Props) => {

@@ -4,28 +4,27 @@ import EvolutionTab from "@organisms/EvolutionTab";
 import BaseStatsTab from "@organisms/BaseStatsTab";
 import styles from "./PokemonDetails.module.scss";
 import MovesTab from "@organisms/MovesTab";
-
-type TabsURL = "about" | "basestats" | "evolution" | "moves";
+import Page from "@models/Pages";
 
 type Props = {
-  current: TabsURL;
+  current: Page;
   pokemonID: string | undefined;
 };
 
 const PokemonDetails = ({ current, pokemonID }: Props) => {
   const tabs = [
-    { url: "about" as TabsURL, display: "About", current: "about" === current },
+    { url: "about" as Page, display: "About", current: "about" === current },
     {
-      url: "basestats" as TabsURL,
+      url: "basestats" as Page,
       display: "Base Stats",
       current: "basestats" === current,
     },
     {
-      url: "evolution" as TabsURL,
+      url: "evolution" as Page,
       display: "Evolution",
       current: "evolution" === current,
     },
-    { url: "moves" as TabsURL, display: "Moves", current: "moves" === current },
+    { url: "moves" as Page, display: "Moves", current: "moves" === current },
   ];
 
   return (

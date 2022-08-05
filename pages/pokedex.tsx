@@ -5,7 +5,7 @@ import PokedexHeader from "@organisms/PokedexHeader";
 import PokedexMain from "@organisms/PokedexMain";
 import SettingsMenu from "@organisms/SettingsMenu";
 
-const Pokedex: NextPage<{ allPokemon: any }> = () => {
+const Pokedex: NextPage = () => {
   return (
     <div>
       <Head>
