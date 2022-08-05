@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { request, gql } from "graphql-request";
 import { graphQLPKList, spriteparsedPKList } from "@models/PokemonFetchTypes";
+import { compatiblePokemonList } from "@utils/adjustAPI";
 
 type QueryResult = {
   pokemon_v2_pokemon: graphQLPKList[];
@@ -55,8 +56,11 @@ const usePokemon = ({ page = 0 }) => {
           }
         `;
   const { data, error } = useSWR<spriteparsedPKList[]>(query, graphQLFetcher);
+
+  const pokemon = compatiblePokemonList(data);
+
   return {
-    pokemon: data,
+    pokemon,
     isLoading: !error && !data,
     isError: error,
   };
