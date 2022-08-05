@@ -42,7 +42,7 @@ const PokemonHeader = ({
     if (isLiked) {
       favorites = favorites.filter((f) => f !== pokemonName);
       localStorage.setItem("favorites", JSON.stringify(favorites));
-      setFavorite(true);
+      setFavorite(false);
     }
   };
 
