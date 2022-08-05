@@ -11,6 +11,9 @@
     margin: 5vh auto 3vh auto;
     border-radius: 45px;
     overflow: hidden;
+    @media (max-width: 770px) {
+      height: 30vh;
+    }
   }
   &__content {
     flex-direction: column;
