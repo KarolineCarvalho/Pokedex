@@ -9,19 +9,14 @@ type QueryResult = {
 
 const graphQLFetcher = async (query: string) => {
   const data = await request("https://beta.pokeapi.co/graphql/v1beta", query);
-  const sprites = data.pokemon_v2_pokemon.map(
-    (result: { pokemon_v2_pokemonsprites: { sprites: string }[] }) =>
-      result.pokemon_v2_pokemonsprites[0].sprites.replace('\\"', '"')
-  );
-  const spritesParsed = await Promise.all(
-    sprites.map((result: string) => JSON.parse(result))
-  );
-  const parsedData = data.pokemon_v2_pokemon.map(
-    (result: graphQLPKList, i: number) => ({
-      ...result,
-      pokemon_v2_pokemonsprites: [{ sprites: spritesParsed[i] }],
-    })
-  );
+
+  const parsedData = data.pokemon_v2_pokemon.map((result: graphQLPKList) => ({
+    ...result,
+    pokemon_v2_pokemonsprites: [
+      { sprites: result.pokemon_v2_pokemonsprites[0].sprites },
+    ],
+  }));
+
   return parsedData;
 };
 
